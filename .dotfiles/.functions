@@ -1,0 +1,21 @@
+transfer() {
+    # write to output to tmpfile because of progress bar
+    tmpfile=$( mktemp -t transferXXX )
+    curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile;
+    cat $tmpfile;
+    rm -f $tmpfile;
+}
+
+function dt2h() {
+    case $(uname -s) in
+        Darwin)
+            TZ=UTC date -r $1;;
+        *)
+            TZ=UTC date -d @$1;;
+    esac
+}
+
+function npm-do() {
+    (PATH=$(npm bin):$PATH; eval $@;)
+}
+

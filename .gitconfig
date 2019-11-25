@@ -1,0 +1,35 @@
+[core]
+	editor = nvim
+	excludesfile = ~/.gitignore_global
+[user]
+	name = Guille
+	email = guille@shuttlecloud.com
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	le = log --oneline --decorate
+	fl = log -u
+	dlc = diff --cached HEAD^
+	la = "!git config -l | grep alias | cut -c 7-"
+	cp = cherry-pick
+	st = status -sb
+	cl = clone
+	ci = commit
+	co = checkout
+	br = branch
+	diff = diff --word-diff
+	dc = diff --cached
+	r = reset
+	r1 = reset HEAD^
+	r2 = reset HEAD^^
+	rh = reset --hard
+	rh1 = reset HEAD^ --hard
+	rh2 = reset HEAD^^ --hard
+	sl = stash list
+	sa = stash apply
+	ss = stash save
+[push]
+	default = current
+[merge]
+	ff = only
+[fetch]
+	prune = true
