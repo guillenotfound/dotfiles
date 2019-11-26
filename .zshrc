@@ -36,8 +36,8 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+source ~/.dotfiles/.completion
 source ~/.dotfiles/.alias
 source ~/.dotfiles/.export
 source ~/.dotfiles/.functions
 source ~/.dotfiles/.python
-source ~/.dotfiles/.completion
