@@ -8,12 +8,14 @@ if ! zgen saved; then
     zgen oh-my-zsh
 
     # plugins
-    zgen oh-my-zsh plugins/adb
-    zgen oh-my-zsh plugins/z
+    zgen oh-my-zsh plugins/docker
+    zgen oh-my-zsh plugins/docker-compose
     zgen oh-my-zsh plugins/extract
+    zgen oh-my-zsh plugins/gcloud
+    zgen oh-my-zsh plugins/minikube
     zgen oh-my-zsh plugins/sublime
     # zgen oh-my-zsh plugins/taskwarrior
-    zgen oh-my-zsh plugins/minikube
+    zgen oh-my-zsh plugins/z
 
     # Syntax highlighting bundle.
     zgen load zsh-users/zsh-autosuggestions
@@ -34,9 +36,8 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-autoload -U +X bashcompinit && bashcompinit
-
 source ~/.dotfiles/.alias
 source ~/.dotfiles/.export
 source ~/.dotfiles/.functions
 source ~/.dotfiles/.python
+source ~/.dotfiles/.completion
