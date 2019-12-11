@@ -2,17 +2,17 @@
 alias vim=nvim
 
 # Git
+alias ga="git add"
 alias gaa="git add -A"
 alias gap="git add -p"
-alias gc="git checkout"
-alias gc="git commit"
+alias gc="git commit -v"
 alias gd="git diff"
-alias glo="git pull origin"
 alias gl="git pull"
+alias glo="git pull origin"
 alias gm="git merge - --no-ff"
 alias gp="git push"
 alias gpo="git push origin"
-alias gst="git status"
+alias gst="git st"
 
 # docker
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"'
