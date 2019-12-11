@@ -14,3 +14,7 @@ call plug#end()
 " airline
 " =====================
 let g:airline_theme='onedark'
+
+
+imap jj <Esc>
+
