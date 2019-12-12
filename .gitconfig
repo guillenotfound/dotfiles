@@ -29,6 +29,7 @@
 	ss = stash save
 [push]
 	default = current
+	followTags = true
 [merge]
 	ff = only
 [fetch]
