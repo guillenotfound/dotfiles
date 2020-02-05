@@ -11,3 +11,5 @@ export CPPFLAGS='-I/usr/local/opt/openssl/include -I/usr/local/opt/readline/incl
 # Editor
 export EDITOR='nvim'
 
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
+export PATH=$JAVA_HOME/bin:$PATH
