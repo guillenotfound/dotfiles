@@ -13,3 +13,5 @@ ln -s .config/nvim/init.vim .vimrc
 
 touch .hushlogin
 
+mkdir Screenshots
+defaults write com.apple.screencapture location $(pwd)/Screenshots
