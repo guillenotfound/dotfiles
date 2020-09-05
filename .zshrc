@@ -25,6 +25,7 @@ if ! zgen saved; then
 
     # Other plugins
     zgen load djui/alias-tips
+    zgen load buonomo/yarn-completion
 
     # Theme
     zgen load mafredri/zsh-async
