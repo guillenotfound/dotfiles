@@ -32,3 +32,10 @@ hs_err_pid*
 
 *.cache
 *.vscode
+
+# File which contains changes that to ease local development
+development.patch
+
+# Directory with secrets
+secrets/
+
