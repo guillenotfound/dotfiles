@@ -1,11 +1,12 @@
 [core]
 	editor = nvim
+	pager = delta --diff-so-fancy
 	excludesfile = ~/.gitignore_global
 [user]
 	name = Guille
 	email = guille@shuttlecloud.com
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --abbrev=8
 	le = log --oneline --decorate
 	fl = log -u
 	dlc = diff --cached HEAD^
@@ -17,7 +18,6 @@
 	co = checkout
 	br = branch
 	diff = diff --word-diff
-	dc = diff --cached
 	r = reset
 	r1 = reset HEAD^
 	r2 = reset HEAD^^
@@ -29,8 +29,19 @@
 	ss = stash save
 [push]
 	default = current
-	followTags = true
+	# followTags = true
 [merge]
 	ff = only
 [fetch]
 	prune = true
+[pull]
+	ff = only
+	rebase = true
+[delta]
+	features = decorations
+	line-numbers = true
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+	hunk-header-decoration-style = cyan box ul
