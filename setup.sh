@@ -4,6 +4,7 @@ cd $HOME
 
 git init
 git remote add origin git@github.com:guillenotfound/dotfiles.git
+git fetch
 git reset --hard origin master
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
