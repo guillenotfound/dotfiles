@@ -3,7 +3,7 @@
 cd $HOME
 
 git init
-git remote add origin git@github.com:ZiFFeL1992/dotfiles.git
+git remote add origin git@github.com:guillenotfound/dotfiles.git
 git reset --hard origin master
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -15,3 +15,4 @@ touch .hushlogin
 
 mkdir Screenshots
 defaults write com.apple.screencapture location $(pwd)/Screenshots
+

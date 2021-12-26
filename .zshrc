@@ -1,6 +1,8 @@
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 
+alias sudo='sudo '
+
 # if the init scipt doesn't exist
 if ! zgen saved; then
     echo "Creating a zgen save"
@@ -14,6 +16,7 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/gcloud
     zgen oh-my-zsh plugins/minikube
     zgen oh-my-zsh plugins/sublime
+    zgen oh-my-zsh plugins/colored-man-pages
     # zgen oh-my-zsh plugins/taskwarrior
     zgen oh-my-zsh plugins/z
 
