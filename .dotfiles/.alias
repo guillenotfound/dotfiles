@@ -1,13 +1,24 @@
 # nvim
 alias vim=nvim
+function view() { vim -R $@ }
 
 # Git
+alias g="git"
+compdef g="git"
+
+function gd() { git diff $@ -- ':(exclude)yarn.lock' ':(exclude)package-lock.json' ':(exclude)Pipfile.lock'; }
+function gds() { git diff --staged $@ -- ':(exclude)yarn.lock' ':(exclude)package-lock.json' ':(exclude)Pipfile.lock'; }
+
 alias ga="git add"
 alias gaa="git add -A"
 alias gap="git add -p"
 alias gc="git commit -v"
-alias gd="git diff"
-alias gdsf="git diff | diff-so-fancy | more -R"
+alias c="git commit -m"
+alias gcaa="git add --all && git commit --amend --no-edit"
+alias gnope="git checkout ."
+alias gwait="git reset HEAD"
+alias gundo="git reset HEAD~"
+alias gco="git co"
 alias gl="git pull"
 alias glo="git pull origin"
 alias gm="git merge - --no-ff"
@@ -22,18 +33,20 @@ alias vd='deactivate'
 alias pir='pip install -r requirements.txt'
 
 # docker
-alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"'
 alias d="docker"
-alias dc="docker-compose"
 compdef d="docker"
+
+alias dc="docker-compose"
 compdef dc="docker-compose"
+
+alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"'
 
 # kubernetes
 alias k="kubectl"
 compdef k="kubectl"
 
 # ip addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias remoteip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 
 # Clean up .DS_Store
@@ -50,3 +63,5 @@ alias autossh='autossh -M 0 -o "ServerAliveInterval 30" -o "ServerAliveCountMax 
 
 # Get ports in use
 alias used-ports='lsof -iTCP -sTCP:LISTEN -P -n'
+
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
