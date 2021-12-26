@@ -7,12 +7,10 @@ git remote add origin git@github.com:guillenotfound/dotfiles.git
 git fetch
 git reset --hard origin master
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-ln -s .config/nvim/init.vim .vimrc
+ln -sf .config/nvim/init.vim .vimrc
 
-touch .hushlogin
-
-mkdir Screenshots
-defaults write com.apple.screencapture location $(pwd)/Screenshots
+[ -d Screenshots ] || mkdir Screenshots
+defaults write com.apple.screencapture location "${HOME}/Screenshots"
