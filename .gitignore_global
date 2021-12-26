@@ -39,3 +39,4 @@ development.patch
 # Directory with secrets
 secrets/
 
+**/.venv/

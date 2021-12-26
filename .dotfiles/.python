@@ -1,2 +1,7 @@
 # Use brewed python
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+
+export PYTHONBREAKPOINT=ipdb.set_trace
+
+alias flake8="flake8 --max-line-length 139 --extend-exclude=.venv"
+alias black-fmt="black . --line-length 139 --skip-string-normalization"
