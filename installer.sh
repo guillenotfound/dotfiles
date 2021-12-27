@@ -55,3 +55,6 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 ln -sf .config/nvim/init.vim .vimrc
+
+# Install Cloud SQL Proxy
+go install github.com/GoogleCloudPlatform/cloudsql-proxy/cmd/cloud_sql_proxy@latest

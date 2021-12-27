@@ -16,4 +16,4 @@ git reset --hard origin/master
 mkdir -p $HOME/go/{bin,src,pkg}
 
 # Create repositories dir
-mkdir -p repos
+mkdir -p $HOME/{repos,Screenshots}
