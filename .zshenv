@@ -11,8 +11,9 @@ export EDITOR='nvim'
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X'
 
-# Do not auto-update homebrew packages by default
+# Homebrew
 export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_CASK_OPTS=--no-quarantine
 
 # Set IPDB as default debugger
 export PYTHONBREAKPOINT=ipdb.set_trace
@@ -24,4 +25,3 @@ export DOCKER_BUILDKIT=1
 export GOPATH=$HOME/go
 export GOROOT="/opt/homebrew/opt/go/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
-
