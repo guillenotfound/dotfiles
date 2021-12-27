@@ -1,0 +1,52 @@
+transfer() {
+    # write to output to tmpfile because of progress bar
+    tmpfile=$( mktemp -t transferXXX )
+    curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile;
+    cat $tmpfile;
+    rm -f $tmpfile;
+}
+
+function dt2h() {
+    case $(uname -s) in
+        Darwin)
+            millis=`echo $1 | cut -c1-10`
+            TZ=UTC date -r $millis;;
+        *)
+            TZ=UTC date -d @$1;;
+    esac
+}
+
+# capture the output of a command so it can be retrieved with ret
+cap () { tee /tmp/capture.out}
+
+# return the output of the most recent command that was captured by cap
+ret () { cat /tmp/capture.out }
+
+function npm-do() {
+    (PATH=$(npm bin):$PATH; eval $@;)
+}
+
+function mac-is-linux() {
+    PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+}
+
+# https://coderwall.com/p/i5z1cg/automatically-update-path-with-proper-node_modules-bin
+__OLD_PATH=$PATH
+function updatePATHForNPM() {
+    export PATH=$(npm bin):$__OLD_PATH
+}
+
+function node-mode() {
+    PROMPT_COMMAND=updatePATHForNPM
+}
+
+function node-mode-off() {
+    unset PROMPT_COMMAND
+    PATH=$__OLD_PATH
+}
+
+precmd() {
+    eval "$PROMPT_COMMAND"
+}
+
+# node-mode
