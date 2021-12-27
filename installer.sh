@@ -36,7 +36,7 @@ brew bundle install
 sudo n lts
 
 # Install global npm packages
-npm i -g npkill npm-check-updates vite ts-node
+npm i -g npkill npm-check-updates vite ts-node https://github.com/victor141516/git-o
 
 # Install gcloud
 brew install google-cloud-sdk
