@@ -1,8 +1,6 @@
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 
-alias sudo='sudo '
-
 # if the init scipt doesn't exist
 if ! zgen saved; then
     echo "Creating a zgen save"
@@ -14,10 +12,8 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/docker-compose
     zgen oh-my-zsh plugins/extract
     zgen oh-my-zsh plugins/gcloud
-    zgen oh-my-zsh plugins/minikube
     zgen oh-my-zsh plugins/sublime
     zgen oh-my-zsh plugins/colored-man-pages
-    # zgen oh-my-zsh plugins/taskwarrior
     zgen oh-my-zsh plugins/z
 
     # Syntax highlighting bundle.
@@ -28,20 +24,20 @@ if ! zgen saved; then
 
     # Other plugins
     zgen load djui/alias-tips
-    zgen load buonomo/yarn-completion
-
-    # Theme
-    zgen load mafredri/zsh-async
-    zgen load sindresorhus/pure
 
     # generate the init script from plugins above
     zgen save
 fi
 
+# Load prompt
+autoload -U promptinit; promptinit
+prompt pure
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source ~/.dotfiles/.completion
-source ~/.dotfiles/.alias
-source ~/.dotfiles/.export
-source ~/.dotfiles/.functions
-source ~/.dotfiles/.python
+source ~/.aliases
+source ~/.functions
+
+# Other completions
+source <(kubectl completion zsh)
+source <(npm completion zsh)
