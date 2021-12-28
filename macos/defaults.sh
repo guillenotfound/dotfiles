@@ -21,8 +21,11 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 
 # Modify top bar menu items
 defaults write com.apple.systemuiserver menuExtras -array \
-  "/System/Library/CoreServices/Menu Extras/VPN.menu" \
-  "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
+  "/System/Library/CoreServices/Menu Extras/VPN.menu"
+
+# Display Bluetooth icon
+# https://community.jamf.com/t5/jamf-pro/show-bluetooth-in-menu-bar/td-p/235435
+defaults write ~/Library/Preferences/ByHost/com.apple.controlcenter.plist Bluetooth -int 18
 
 # Trackpad: enable tap to click for this user and for the login screen
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
