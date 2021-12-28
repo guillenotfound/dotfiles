@@ -13,7 +13,6 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/extract
     zgen oh-my-zsh plugins/gcloud
     zgen oh-my-zsh plugins/sublime
-    zgen oh-my-zsh plugins/colored-man-pages
     zgen oh-my-zsh plugins/z
 
     # Syntax highlighting bundle.

@@ -9,7 +9,7 @@ export PATH=/opt/homebrew/opt/postgresql@10/bin:$PATH
 export EDITOR='nvim'
 
 # Don’t clear the screen after quitting a manual page.
-export MANPAGER='less -X'
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Homebrew
 export HOMEBREW_NO_AUTO_UPDATE=1
