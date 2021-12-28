@@ -4,6 +4,7 @@ alias sudo="sudo "
 # nvim
 alias vim=nvim
 function view() { vim -R $@ }
+function vimdiff() { vim -d $@ }
 
 # Git
 alias g="git"
