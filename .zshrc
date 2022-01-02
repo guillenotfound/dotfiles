@@ -19,7 +19,6 @@ if ! zgen saved; then
     zgen load zsh-users/zsh-autosuggestions
     zgen load zsh-users/zsh-completions src
     zgen load zsh-users/zsh-syntax-highlighting
-    zgen load lukechilds/zsh-better-npm-completion
 
     # Other plugins
     zgen load djui/alias-tips
@@ -39,4 +38,5 @@ source ~/.functions
 
 # Other completions
 source <(kubectl completion zsh)
-source <(npm completion zsh)
+source <(npm completion)
+
