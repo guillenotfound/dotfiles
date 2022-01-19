@@ -35,8 +35,8 @@ prompt pure
 
 source ~/.aliases
 source ~/.functions
+source ~/.custom || true
 
 # Other completions
 source <(kubectl completion zsh)
 source <(npm completion)
-
