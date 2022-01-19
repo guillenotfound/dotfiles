@@ -49,3 +49,7 @@
 	file-style = bold yellow ul
 	file-decoration-style = none
 	hunk-header-decoration-style = cyan box ul
+[init]
+	defaultBranch = main
+[rebase]
+	autoStash = true
