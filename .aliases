@@ -32,11 +32,13 @@ alias gst="git st"
 
 # Python
 alias python="python3"
+alias pip="pip3"
 alias ve="python3 -m venv .venv"
 alias va="source .venv/bin/activate"
 alias vd="deactivate"
 alias pir="pip install -r requirements.txt"
-alias flake8="flake8 --max-line-length 139 --extend-exclude=.venv"
+alias pird="pip install -r requirements-dev.txt"
+alias flake8-lint="flake8 --max-line-length 139 --extend-exclude=.venv"
 alias black-fmt="black . --line-length 139 --skip-string-normalization"
 
 # Docker
@@ -86,3 +88,4 @@ alias reload="exec ${SHELL} -l"
 
 # Tailscale
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
