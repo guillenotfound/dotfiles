@@ -40,3 +40,5 @@ source ~/.custom || true
 # Other completions
 source <(kubectl completion zsh)
 source <(npm completion)
+eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
+
