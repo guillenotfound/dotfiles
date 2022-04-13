@@ -4,7 +4,7 @@
 	excludesfile = ~/.gitignore_global
 [user]
 	name = Guille
-	email = darkwilly92@gmail.com
+	email = guillenotfound@gmail.com
 
 [includeIf "gitdir:~/repos/work/"]
 	path = .gitconfig_work
