@@ -6,9 +6,6 @@
 	name = Guille
 	email = guillenotfound@gmail.com
 
-[includeIf "gitdir:~/repos/work/"]
-	path = .gitconfig_work
-
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --abbrev=8
 	le = log --oneline --decorate
