@@ -55,3 +55,6 @@ batdiff() {
     git diff --name-only --diff-filter=d | xargs bat --diff
 }
 
+gch () {
+    git checkout "$(git branch --all | fzf | tr -d '[:space:]')"
+}
