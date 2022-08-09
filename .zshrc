@@ -1,3 +1,5 @@
+fpath+=$HOME/.zsh/pure
+
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 
@@ -35,10 +37,10 @@ prompt pure
 
 source ~/.aliases
 source ~/.functions
-source ~/.custom || true
+source ~/.custom &> /dev/null || true
 
 # Other completions
-source <(kubectl completion zsh)
-source <(npm completion)
-eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
+test -f kubectl && source <(kubectl completion zsh)
+test -f npm && source <(npm completion)
+test -f pipenv && eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
 

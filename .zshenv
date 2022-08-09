@@ -15,6 +15,9 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_CASK_OPTS=--no-quarantine
 
+# pip
+export PATH=/home/ubuntu/.local/bin:$PATH
+
 # Set IPDB as default debugger
 export PYTHONBREAKPOINT=ipdb.set_trace
 
@@ -23,5 +26,11 @@ export DOCKER_BUILDKIT=1
 
 # Golang
 export GOPATH=$HOME/go
-export GOROOT="/opt/homebrew/opt/go/libexec"
+export GOROOT="/usr/local/go"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+# Node
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"
+
+# Rust
+. "$HOME/.cargo/env"
