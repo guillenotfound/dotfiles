@@ -1,3 +1,6 @@
+#fpath+=($HOME/.zsh/pure)
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 
