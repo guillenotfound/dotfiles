@@ -28,6 +28,8 @@
 	sl = stash list
 	sa = stash apply
 	ss = stash save
+	# https://jordanelver.co.uk/blog/2020/06/04/fixing-commits-with-git-commit-fixup-and-git-rebase-autosquash/
+	fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
 [push]
 	default = current
 	# followTags = true
