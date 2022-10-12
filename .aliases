@@ -51,10 +51,6 @@ compdef dc="docker-compose"
 
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"'
 
-function stop-docker() {
-    test -z "$(docker ps -q 2>/dev/null)" && osascript -e 'quit app "Docker"'
-}
-
 # Kubernetes
 alias k="kubectl"
 compdef k="kubectl"
@@ -66,8 +62,8 @@ alias localip="ipconfig getifaddr en0"
 # Clean up .DS_Store
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
-# Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
+# Get macOS Software Updates, and update installed Homebrew, npm, and their installed packages
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g;'
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
@@ -81,12 +77,5 @@ alias used-ports='lsof -iTCP -sTCP:LISTEN -P -n'
 # Airport CLI alias
 alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
 
-# Lock the screen (when going AFK)
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
-
-# Tailscale
-alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
-
