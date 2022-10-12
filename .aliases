@@ -90,3 +90,4 @@ alias reload="exec ${SHELL} -l"
 # Tailscale
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
+alias ec2-copy="ssh ec2-ubuntu cat /tmp/capture.out | pbcopy"

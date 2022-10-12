@@ -6,6 +6,9 @@
 	name = Guille
 	email = guillenotfound@gmail.com
 
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --abbrev=8
 	le = log --oneline --decorate
@@ -48,5 +51,6 @@
 	hunk-header-decoration-style = cyan box ul
 [init]
 	defaultBranch = main
+	templatedir = ~/.git-templates
 [rebase]
 	autoStash = true

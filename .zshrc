@@ -41,4 +41,7 @@ source ~/.custom || true
 source <(kubectl completion zsh)
 source <(npm completion)
 eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
+complete -C '/opt/homebrew/bin/aws_completer' aws
+
+export LS_COLORS="$(vivid generate snazzy)"
 

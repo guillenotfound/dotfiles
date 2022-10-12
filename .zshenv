@@ -25,3 +25,7 @@ export DOCKER_BUILDKIT=1
 export GOPATH=$HOME/go
 export GOROOT="/opt/homebrew/opt/go/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+# ZSH
+export DISABLE_MAGIC_FUNCTIONS=true
+
