@@ -58,3 +58,8 @@ batdiff() {
 gch () {
     git checkout "$(git branch --all | fzf | tr -d '[:space:]')"
 }
+
+send-wapp() {
+    number=`echo $1 | tr -d ' '`
+    open "https://api.whatsapp.com/send?phone=$number&text="
+}
