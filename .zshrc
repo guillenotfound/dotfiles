@@ -39,6 +39,8 @@ source ~/.aliases
 source ~/.functions
 source ~/.custom || true
 
+source "$HOME/.cargo/env"
+
 # Other completions
 source <(npm completion)
 source <(kubectl completion zsh)

@@ -31,3 +31,6 @@ export DOCKER_BUILDKIT=1
 export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix go)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+# Rust
+export PATH="$PATH:$HOME/.cargo/bin"

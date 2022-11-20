@@ -60,6 +60,7 @@ brew "go"
 brew "n"
 brew "pipenv"
 brew "python@3.10"
+brew "rustup"
 
 # Caddy server
 brew "caddy"
