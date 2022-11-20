@@ -3,6 +3,8 @@ eval "$(starship init zsh)"
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
 
+eval "$(zoxide init zsh)"
+
 # if the init scipt doesn't exist
 if ! zgen saved; then
     echo "Creating a zgen save"
@@ -15,7 +17,6 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/docker-compose
     zgen oh-my-zsh plugins/kubectl
     zgen oh-my-zsh plugins/extract
-    zgen oh-my-zsh plugins/z
 
     zgen load 'wfxr/forgit'
 

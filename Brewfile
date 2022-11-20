@@ -54,6 +54,7 @@ brew "watch"
 brew "xsv"
 brew "yq"
 brew "zsh"
+brew "zoxide"
 
 # Languages
 brew "go"
