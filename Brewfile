@@ -27,6 +27,7 @@ brew "git-flow"
 brew "git"
 brew "grpc"
 brew "hey"
+brew "htmlq" # pup alternative in rust
 brew "htop"
 brew "httpie"
 brew "hyperfine"
@@ -44,8 +45,8 @@ brew "sops"
 brew "speedtest-cli"
 brew "starship"
 brew "ssh-copy-id", link: true
+brew "tealdeer" # tldr alternative in rust
 brew "tig"
-brew "tldr"
 brew "tmux-xpanes"
 brew "tmux"
 brew "tree"
