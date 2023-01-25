@@ -14,7 +14,7 @@ compdef g="git"
 function gd() { git diff $@ -- ':(exclude)yarn.lock' ':(exclude)package-lock.json' ':(exclude)Pipfile.lock'; }
 function gds() { git diff --staged $@ -- ':(exclude)yarn.lock' ':(exclude)package-lock.json' ':(exclude)Pipfile.lock'; }
 
-# alias ga="git add"
+alias ga="git add"
 alias gaa="git add -A"
 alias gap="git add -p"
 alias gc="git commit -v"

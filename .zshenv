@@ -42,3 +42,8 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="
   --preview 'bat -n --color=always {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+# forgit
+export forgit_add=gaf
+export forgit_diff=gdf
+export forgit_checkout_branch=gch

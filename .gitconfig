@@ -5,9 +5,8 @@
 [user]
 	name = Guille
 	email = guillenotfound@gmail.com
-
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --abbrev=8
+	lg = log --color --graph --pretty=format:'%C(auto)%h%Creset -%C(bold red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --abbrev=8
 	le = log --oneline --decorate
 	fl = log -u
 	dlc = diff --cached HEAD^
@@ -42,12 +41,14 @@
 	rebase = true
 [delta]
 	features = decorations
-	line-numbers = true
 [delta "decorations"]
 	commit-decoration-style = bold yellow box ul
 	file-style = bold yellow ul
 	file-decoration-style = none
 	hunk-header-decoration-style = cyan box ul
+	line-numbers = true
+[interactive]
+	diffFilter = delta --color-only --diff-so-fancy --features=no-line-numbers
 [init]
 	defaultBranch = main
 [rebase]
