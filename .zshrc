@@ -1,9 +1,12 @@
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+# Enable shell completion
+# https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 # load zgen
 source "${HOME}/.zgen/zgen.zsh"
-
-eval "$(zoxide init zsh)"
 
 # if the init scipt doesn't exist
 if ! zgen saved; then
@@ -12,11 +15,12 @@ if ! zgen saved; then
     zgen oh-my-zsh
 
     # plugins
-    zgen oh-my-zsh plugins/aws
     zgen oh-my-zsh plugins/docker
     zgen oh-my-zsh plugins/docker-compose
-    zgen oh-my-zsh plugins/kubectl
     zgen oh-my-zsh plugins/extract
+    zgen oh-my-zsh plugins/gcloud
+    zgen oh-my-zsh plugins/httpie
+    zgen oh-my-zsh plugins/kubectl
 
     zgen load 'wfxr/forgit'
 
@@ -38,12 +42,12 @@ zstyle ':completion:*:-command-:*' tag-order '!parameters'
 
 source ~/.aliases
 source ~/.functions
-source ~/.custom || true
+[ -f ~/.custom ] && source ~/.custom
 
 source "$HOME/.cargo/env"
 
 # Other completions
-source <(npm completion)
+# eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
+# eval $(starship completions zsh)
 source <(kubectl completion zsh)
-eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
-eval $(starship completions zsh)
+source <(npm completion)
