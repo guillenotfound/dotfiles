@@ -34,3 +34,11 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 # Rust
 export PATH="$PATH:$HOME/.cargo/bin"
+
+# FZF
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
+
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
