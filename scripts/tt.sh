@@ -10,7 +10,7 @@ FOLDER=$(basename $ZOXIDE_RESULT)
 SESSION_NAME=$(echo $FOLDER | tr ' ' '_' | tr '.' '_')
 
 # lookup tmux session name
-SESSION=$(tmux list-sessions | grep -f $SESSION_NAME | awk '{print $1}')
+SESSION=$(tmux list-sessions | grep -F $SESSION_NAME | awk '{print $1}')
 SESSION=${SESSION//:/}
 
 if [ -z "$SESSION" ]; then
