@@ -1,0 +1,9 @@
+function dt2h() {
+    case $(uname -s) in
+        Darwin)
+            millis=`echo $1 | cut -c1-10`
+            TZ=${TZ:-UTC} date -r $millis;;
+        *)
+            TZ=UTC date -d @$1;;
+    esac
+}

@@ -15,6 +15,7 @@ brew "curl"
 brew "diff-so-fancy"
 brew "dive"
 brew "docker", link: false
+brew "docker-completion"
 brew "dust"
 brew "exa"
 brew "fd"
@@ -46,7 +47,6 @@ brew "speedtest-cli"
 brew "starship"
 brew "ssh-copy-id", link: true
 brew "tealdeer" # tldr alternative in rust
-brew "tig"
 brew "tmux-xpanes"
 brew "tmux"
 brew "tree"

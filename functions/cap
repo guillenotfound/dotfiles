@@ -1,0 +1,2 @@
+# capture the output of a command so it can be retrieved with ret
+cap () { tee /tmp/capture.out}

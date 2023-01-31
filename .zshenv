@@ -2,8 +2,8 @@
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 
-# Export homebrew to path
-export PATH="/opt/homebrew/bin:$PATH"
+# Hide % sign at EOL
+export PROMPT_EOL_MARK=''
 
 # Expose postgres binaries
 export PATH=/opt/homebrew/opt/postgresql@14/bin:$PATH
@@ -47,3 +47,5 @@ export FZF_CTRL_T_OPTS="
 export forgit_add=gaf
 export forgit_diff=gdf
 export forgit_checkout_branch=gch
+
+export FORGIT_LOG_FZF_OPTS="--reverse"

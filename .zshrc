@@ -1,53 +1,78 @@
 eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
+# source ~/.zsh/starship.zsh
+# eval "$(zoxide init zsh)"
 
 # Enable shell completion
 # https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+FPATH="/opt/homebrew/share/zsh/site-functions:${FPATH}"
 
-# load zgen
-source "${HOME}/.zgen/zgen.zsh"
+# FIXME: `brew --prefix` adds some extra MS
 
-# if the init scipt doesn't exist
-if ! zgen saved; then
-    echo "Creating a zgen save"
 
-    zgen oh-my-zsh
+function zcompile-many() {
+  local f
+  for f; do zcompile -R -- "$f".zwc "$f"; done
+}
 
-    # plugins
-    zgen oh-my-zsh plugins/docker
-    zgen oh-my-zsh plugins/docker-compose
-    zgen oh-my-zsh plugins/extract
-    zgen oh-my-zsh plugins/gcloud
-    zgen oh-my-zsh plugins/httpie
-    zgen oh-my-zsh plugins/kubectl
+##########
 
-    zgen load 'wfxr/forgit'
-
-    # Syntax highlighting bundle.
-    zgen load zsh-users/zsh-autosuggestions
-    zgen load zsh-users/zsh-syntax-highlighting
-
-    # generate the init script from plugins above
-    zgen save
+# TODO: use a glob instead!
+if [[ ! -e ~/functions/batdiff.zwc ]]; then
+  zcompile-many functions/*
 fi
+
+FPATH="$HOME/functions:${FPATH}"
+
+##########
+
+mkdir -p .zsh/plugins
+
+export ZSH="$HOME/.zsh/ohmyzsh"
+DISABLE_MAGIC_FUNCTIONS="true"
+ENABLE_CORRECTION="false"
+DISABLE_AUTO_UPDATE="true"
+plugins=(extract)
+
+if [[ ! -e ~/.zsh/ohmyzsh ]]; then
+  git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.zsh/ohmyzsh
+  zcompile-many $ZSH/oh-my-zsh.sh
+  zcompile-many $ZSH/lib/*.zsh
+  zcompile-many $ZSH/plugins/**/*.zsh
+  zcompile-many $ZSH/plugins/**/_*
+fi
+
+if [[ ! -e ~/.zsh/plugins/zsh-syntax-highlighting ]]; then
+  git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/plugins/zsh-syntax-highlighting
+  zcompile-many ~/.zsh/plugins/zsh-syntax-highlighting/{zsh-syntax-highlighting.zsh,highlighters/*/*.zsh}
+fi
+
+if [[ ! -e ~/.zsh/plugins/zsh-autosuggestions ]]; then
+  git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/plugins/zsh-autosuggestions
+  zcompile-many ~/.zsh/plugins/zsh-autosuggestions/{zsh-autosuggestions.zsh,src/**/*.zsh}
+fi
+
+if [[ ! -e ~/.zsh/plugins/forgit ]]; then
+  git clone --depth=1 https://github.com/wfxr/forgit.git ~/.zsh/plugins/forgit
+  zcompile-many ~/.zsh/plugins/forgit/forgit.plugin.zsh
+fi
+
+unfunction zcompile-many
+
+source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/plugins/forgit/forgit.plugin.zsh
+source $ZSH/oh-my-zsh.sh
+
+
+
+# Load custom functions
+autoload -Uz batdiff bcp bip bup cap dt2h fshow ret send-wapp transfer
+
+# Load custom aliases
+source ~/.aliases
+
+# Load custom stuffs
+[ -f ~/.custom ] && source ~/.custom
 
 # Enables key bindings and fuzzy completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Hide environment variables from zsh completion
-# Alternative: https://serverfault.com/a/1031560
-# https://serverfault.com/a/1081038
-zstyle ':completion:*:-command-:*' tag-order '!parameters'
-
-source ~/.aliases
-source ~/.functions
-[ -f ~/.custom ] && source ~/.custom
-
-source "$HOME/.cargo/env"
-
-# Other completions
-# eval "$(_PIPENV_COMPLETE=zsh_source pipenv)"
-# eval $(starship completions zsh)
-source <(kubectl completion zsh)
-source <(npm completion)

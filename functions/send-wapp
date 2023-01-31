@@ -1,0 +1,4 @@
+send-wapp() {
+  number=`echo $1 | tr -d ' '`
+  open "https://api.whatsapp.com/send?phone=$number&text="
+}
