@@ -1,6 +1,13 @@
 #!/bin/bash
 
-ZOXIDE_RESULT=$(zoxide query -l | fzf --reverse)
+REPOS_DIR=${REPOS:-~/repos}
+
+ZOXIDE_RESULT=`zoxide query -l`
+REPOSITORIES_RESULT=`fd --type d -g '.git' -H $REPOS_DIR -x dirname`
+
+ALL_RESULTS=( "${ZOXIDE_RESULT[@]}" "${REPOSITORIES_RESULT[@]}" )
+
+ZOXIDE_RESULT=$(printf "%s\n" "${ALL_RESULTS[@]}" | awk '!x[$0]++' | fzf --reverse)
 
 if [ -z "$ZOXIDE_RESULT" ]; then
   exit 0
