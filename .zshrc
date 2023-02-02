@@ -18,14 +18,14 @@ function zcompile-many() {
 
 # TODO: use a glob instead!
 if [[ ! -e ~/functions/batdiff.zwc ]]; then
-  zcompile-many functions/*
+  zcompile-many ~/functions/*
 fi
 
 FPATH="$HOME/functions:${FPATH}"
 
 ##########
 
-mkdir -p .zsh/plugins
+mkdir -p ~/.zsh/plugins
 
 export ZSH="$HOME/.zsh/ohmyzsh"
 DISABLE_MAGIC_FUNCTIONS="true"

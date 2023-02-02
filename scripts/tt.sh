@@ -3,7 +3,7 @@
 REPOS_DIR=${REPOS:-~/repos}
 
 ZOXIDE_RESULT=`zoxide query -l`
-REPOSITORIES_RESULT=`fd --type d -g '.git' -H $REPOS_DIR -x dirname`
+REPOSITORIES_RESULT=`fd -I --type d -g '.git' -H $REPOS_DIR -x dirname`
 
 ALL_RESULTS=( "${ZOXIDE_RESULT[@]}" "${REPOSITORIES_RESULT[@]}" )
 

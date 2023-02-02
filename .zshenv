@@ -5,6 +5,10 @@ export LC_ALL='en_US.UTF-8'
 # Hide % sign at EOL
 export PROMPT_EOL_MARK=''
 
+# Export homebrew to path
+export PATH="/opt/homebrew/bin:$PATH"
+
+# TODO: this should be dynamic depending of if the bin exists
 # Expose postgres binaries
 export PATH=/opt/homebrew/opt/postgresql@14/bin:$PATH
 
