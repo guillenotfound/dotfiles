@@ -1,6 +1,5 @@
 eval "$(starship init zsh)"
-# source ~/.zsh/starship.zsh
-# eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh)"
 
 # Enable shell completion
 # https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
