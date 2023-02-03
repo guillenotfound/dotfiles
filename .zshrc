@@ -28,9 +28,11 @@ FPATH="$HOME/functions:${FPATH}"
 mkdir -p ~/.zsh/plugins
 
 export ZSH="$HOME/.zsh/ohmyzsh"
-DISABLE_MAGIC_FUNCTIONS="true"
-ENABLE_CORRECTION="false"
 DISABLE_AUTO_UPDATE="true"
+DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+ENABLE_CORRECTION="false"
+ZSH_DISABLE_COMPFIX="true"
 plugins=(extract)
 
 if [[ ! -e ~/.zsh/ohmyzsh ]]; then
@@ -66,7 +68,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 # Load custom functions
-autoload -Uz batdiff bcp bip bup cap dt2h fshow ret send-wapp transfer
+autoload -Uz batdiff bcp bip bup cap dt2h mac-is-linux ret send-wapp transfer
 
 # Load custom aliases
 source ~/.aliases
