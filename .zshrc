@@ -3,9 +3,9 @@ eval "$(zoxide init zsh)"
 
 # Enable shell completion
 # https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
+# PERF: `brew --prefix` adds some extra MS
 FPATH="/opt/homebrew/share/zsh/site-functions:${FPATH}"
-
-# FIXME: `brew --prefix` adds some extra MS
+autoload -Uz compinit && compinit
 
 
 function zcompile-many() {
@@ -25,14 +25,6 @@ FPATH="$HOME/functions:${FPATH}"
 ##########
 
 mkdir -p ~/.zsh/plugins
-
-export ZSH="$HOME/.zsh/ohmyzsh"
-DISABLE_AUTO_UPDATE="true"
-DISABLE_MAGIC_FUNCTIONS="true"
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-ENABLE_CORRECTION="false"
-ZSH_DISABLE_COMPFIX="true"
-plugins=(extract)
 
 if [[ ! -e ~/.zsh/ohmyzsh ]]; then
   git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.zsh/ohmyzsh
@@ -62,7 +54,17 @@ unfunction zcompile-many
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/plugins/forgit/forgit.plugin.zsh
-source $ZSH/oh-my-zsh.sh
+
+source ~/.zsh/ohmyzsh/lib/completion.zsh
+#source ~/.zsh/ohmyzsh/lib/correction.zsh
+source ~/.zsh/ohmyzsh/lib/directories.zsh
+source ~/.zsh/ohmyzsh/lib/grep.zsh
+source ~/.zsh/ohmyzsh/lib/history.zsh
+source ~/.zsh/ohmyzsh/lib/key-bindings.zsh
+#source ~/.zsh/ohmyzsh/lib/theme-and-appearance.zsh
+setopt auto_cd
+
+source ~/.zsh/ohmyzsh/plugins/extract/extract.plugin.zsh
 
 
 
