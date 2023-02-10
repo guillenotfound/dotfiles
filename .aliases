@@ -53,7 +53,7 @@ alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"'
 
 # Kubernetes
 alias k="kubectl"
-compdef k="kubectl"
+compdef __start_kubectl k="kubectl"
 
 # ip addresses
 alias ip="curl ifconfig.me"
