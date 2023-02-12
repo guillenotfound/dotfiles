@@ -15,7 +15,6 @@ brew "curl"
 brew "diff-so-fancy"
 brew "dive"
 brew "docker", link: false
-brew "docker-completion"
 brew "dust"
 brew "exa"
 brew "fd"
