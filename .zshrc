@@ -91,7 +91,7 @@ fi
 
 
 if [[ ! -e ~/.config/nvim/init.lua ]]; then
-  curl -sS https://raw.githubusercontent.com/nvim-lua/kickstart.nvim/master/init.lua > ~/.config/nvim/init.lua
+  git clone git@github.com:guillenotfound/kickstart.nvim.git ~/.config/nvim
 fi
 
 unfunction zcompile-many
