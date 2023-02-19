@@ -8,7 +8,8 @@ autoload -Uz compinit && compinit
 
 
 # Load custom functions
-FPATH="$HOME/functions:${FPATH}"
+# TODO: make this path dynamic
+FPATH="$HOME/.dotfiles/functions:${FPATH}"
 autoload -Uz batdiff bcp bip bup cap dt2h mac-is-linux ret send-wapp transfer
 
 
@@ -43,7 +44,7 @@ source ~/.zsh/ohmyzsh/plugins/extract/extract.plugin.zsh
 
 
 # Load custom aliases
-source ~/.aliases
+source ~/.dotfiles/aliases.sh
 
 # Load custom stuffs
 [ -f ~/.custom ] && source ~/.custom
@@ -62,8 +63,8 @@ function zcompile-many() {
 
 
 # TODO: use a glob instead!
-if [[ ! -e ~/functions/batdiff.zwc ]]; then
-  zcompile-many ~/functions/*
+if [[ ! -e ~/.dotfiles/functions/batdiff.zwc ]]; then
+  zcompile-many ~/.dotfiles/functions/*
 fi
 
 if [[ ! -e ~/.zsh/ohmyzsh ]]; then
