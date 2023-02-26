@@ -13,6 +13,8 @@ ln -sf "$DOTFILES_DIR/.tmux.conf" ~/.tmux.conf
 ln -sf "$DOTFILES_DIR/.gitconfig" ~/.gitconfig
 ln -sf "$DOTFILES_DIR/.gitignore_global" ~/.gitignore_global
 
+ln -sf "$DOTFILES_DIR/.rignore" ~/.rignore
+
 ln -sf "$DOTFILES_DIR/.czrc" ~/.czrc
 
 ln -sf "$DOTFILES_DIR/.curlrc" ~/.curlrc
