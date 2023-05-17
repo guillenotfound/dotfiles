@@ -46,7 +46,6 @@ brew "speedtest-cli"
 brew "starship"
 brew "ssh-copy-id", link: true
 brew "tealdeer" # tldr alternative in rust
-brew "tmux-xpanes"
 brew "tmux"
 brew "tree"
 brew "vivid"
