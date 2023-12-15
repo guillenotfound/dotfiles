@@ -5,6 +5,7 @@ DOTFILES_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd 
 ln -sf "$DOTFILES_DIR/.zshrc" ~/.zshrc
 ln -sf "$DOTFILES_DIR/.zshenv" ~/.zshenv
 ln -sf "$DOTFILES_DIR/.zprofile" ~/.zprofile
+ln -sf "$DOTFILES_DIR/.custom" ~/.custom
 
 ln -sf "$DOTFILES_DIR/.hushlogin" ~/.hushlogin
 
