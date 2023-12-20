@@ -28,7 +28,10 @@ $(brew --prefix)/opt/fzf/install
 rm -rf ~/.fzf.bash
 
 # Install Node LTS
-sudo n lts
+sudo n lts --no-use-xz
+
+# Install Node global deps
+npm i -g npm-check-updates tsx
 
 # Create custom directories
 mkdir -p $HOME/{repos,Screenshots}

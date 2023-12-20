@@ -70,6 +70,9 @@ brew "kubernetes-cli"
 brew "kubectx"
 brew "kube-fzf"
 
+# Node
+brew "n"
+
 # Cloud CLI
 cask "google-cloud-sdk"
 brew "awscli"
