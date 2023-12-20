@@ -5,15 +5,13 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
-# tap "hpedrorodrigues/tools"
+tap "thecasualcoder/stable"
 
 # Essential tools
 brew "autossh"
 brew "bat"
-# brew "ctop"
 brew "curl"
 brew "diff-so-fancy"
-brew "dive"
 brew "docker", link: false
 brew "dust"
 brew "exa"
@@ -60,7 +58,7 @@ brew "zoxide"
 brew "go"
 brew "n"
 brew "pipenv"
-brew "python@3.10"
+brew "python@3.12"
 brew "rustup"
 
 # Caddy server
@@ -70,9 +68,11 @@ brew "caddy"
 brew "helm"
 brew "kubernetes-cli"
 brew "kubectx"
+brew "kube-fzf"
 
 # Cloud CLI
 cask "google-cloud-sdk"
+brew "awscli"
 # brew "docker-credential-helper-ecr"
 
 # MacOSX specific utils
@@ -101,41 +101,31 @@ cask "font-roboto-mono"
 # Apps
 
 # Work specific
-cask "1password"
 cask "authy"
 cask "bitwarden"
 cask "docker"
-# cask "dockutil"
 cask "firefox-developer-edition"
 cask "fork"
 cask "google-chrome"
 cask "iterm2"
 cask "keycastr"
-cask "leapp"
 cask "maccy"
 cask "macdown"
+cask "rectangle"
 cask "responsively"
 cask "runjs"
 cask "slack"
 cask "spotify"
-cask "sublime-text"
 cask "table-tool"
 cask "tableplus"
 cask "telegram"
 cask "toggl-track"
 cask "visual-studio-code"
 cask "vlc"
-cask "webtorrent"
 cask "whatsapp"
 cask "zoom"
 
-# Other apps
-# cask "android-file-transfer"
-# cask "android-platform-tools"
-cask "figma"
-cask "transmission"
-
 # Services
-brew "postgresql@14", restart_service: true
-brew "postgis"
-brew "redis", restart_service: true
+# brew "postgresql@14", restart_service: true
+# brew "postgis"
+# brew "redis", restart_service: true
