@@ -20,8 +20,9 @@ ln -sf "$DOTFILES_DIR/czrc" ~/.czrc
 
 ln -sf "$DOTFILES_DIR/curlrc" ~/.curlrc
 
-ln -sf "$DOTFILES_DIR/config/starship.toml" ~/.config/starship.toml
 ln -sf "$DOTFILES_DIR/config/bat" ~/.config/bat
+ln -sf "$DOTFILES_DIR/config/nvim" ~/.config/nvim
+ln -sf "$DOTFILES_DIR/config/starship.toml" ~/.config/starship.toml
 
 # TODO: this should be moved somewhere else
 bat cache --build
