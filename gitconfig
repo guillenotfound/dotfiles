@@ -58,3 +58,5 @@
 ; [includeIf "gitdir:~/repos/"]
 ; 	path = ~/.gitconfig_work
 
+[rerere]
+	enabled = true
