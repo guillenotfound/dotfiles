@@ -1,5 +1,5 @@
 return {
-  { import = "plugins.spec.mason" },
+  -- { import = "plugins.spec.mason" },
   { import = "plugins.override.treesitter" },
   { import = "plugins.override.nvimtree" },
   { import = "plugins.override.conform" },

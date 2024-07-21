@@ -38,4 +38,3 @@ vim.schedule(function()
   require "mappings"
   require "autocmd"
 end)
-

@@ -1,7 +1,5 @@
 require "nvchad.mappings"
 
--- add yours here
-
 local map = vim.keymap.set
 
 -- General
@@ -40,9 +38,15 @@ map("x", "K", ":move '<-2<CR>gv-gv")
 map("x", "<A-j>", ":move '>+1<CR>gv-gv")
 map("x", "<A-k>", ":move '<-2<CR>gv-gv")
 
+
+--
+-- Nvimtree
+map("n", "<leader>b", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle nvimtree" })
+
+
 --
 -- Telescope
-map("n", "<leader>ff", "<cmd> Telescope frecency workspace=CWD <CR>", { desc = "[F]ind [F]iles" })
+map("n", "<leader>ff", "<cmd> Telescope frecency workspace=CWD<CR>", { desc = "[F]ind [F]iles" })
 map("n", "<leader>fww", function()
   local word = vim.fn.expand "<cword>"
   require("telescope.builtin").grep_string { search = word }
@@ -55,9 +59,6 @@ end, { desc = "Grep WORD under cursor" })
 map("n", "<leader>sd", "<cmd> Telescope diagnostics <CR>", { desc = "[S]earch [D]iagnostics" })
 map("n", "<leader>ds", "<cmd> Telescope lsp_document_symbols <CR>", { desc = "[D]ocument [S]ymbols" })
 
---
--- Nvimtree
-map("n", "<leader>b", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle nvimtree" })
 
 --
 -- Disable mappings
@@ -69,3 +70,5 @@ nomap("n", "<leader>v")
 nomap({ "n", "t" }, "<A-v>")
 nomap({ "n", "t" }, "<A-h>")
 nomap({ "n", "t" }, "<A-i>")
+nomap("n", "<tab>")
+nomap("n", "<S-tab>")

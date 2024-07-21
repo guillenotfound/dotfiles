@@ -1,6 +1,7 @@
 local setup = function(_, opts)
-  local on_attach = require("nvchad.configs.lspconfig").on_attach
   local capabilities = require("nvchad.configs.lspconfig").capabilities
+  local on_attach = require("nvchad.configs.lspconfig").on_attach
+  local on_init = require("nvchad.configs.lspconfig").on_init
 
   local lspconfig = require "lspconfig"
   local util = require "lspconfig/util"
@@ -15,7 +16,7 @@ local setup = function(_, opts)
     "gopls",
     "html",
     "jsonls",
-    "lua_ls",
+    -- "lua_ls",
     "tailwindcss",
     "volar",
     "vtsls",
@@ -24,7 +25,6 @@ local setup = function(_, opts)
   -- Borrowed from: https://github.com/mgastonportillo/nvchad-config/blob/e1fead31ad460391f8d251fcda71580f293b8dbd/lua/gale/custom.lua#L4
   local custom_on_attach = function(client, bufnr)
     on_attach(client, bufnr)
-    client.server_capabilities.semanticTokensProvider = nil
 
     local border = "rounded"
     -- vim.lsp.buf.hover()
@@ -49,11 +49,8 @@ local setup = function(_, opts)
     -- Default setup for all servers, unless a custom one is defined below
     function(server_name)
       lspconfig[server_name].setup {
-        on_attach = function(client, bufnr)
-          on_attach(client, bufnr)
-          -- Add your other things here
-          -- Example being format on save or something
-        end,
+        on_attach = on_attach,
+        on_init = on_init,
         capabilities = capabilities,
       }
     end,
@@ -65,7 +62,31 @@ local setup = function(_, opts)
 
     -- Example: disable auto configuring an LSP
     -- Here, we disable lua_ls so we can use NvChad's default config
-    ["lua_ls"] = function() end,
+    ["lua_ls"] = function()
+      lspconfig.lua_ls.setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        on_init = on_init,
+
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+            workspace = {
+              library = {
+                vim.fn.expand "$VIMRUNTIME/lua",
+                vim.fn.expand "$VIMRUNTIME/lua/vim/lsp",
+                vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types",
+                vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy",
+              },
+              maxPreload = 100000,
+              preloadFileSize = 10000,
+            },
+          },
+        },
+      }
+    end,
 
     ["eslint"] = function()
       lspconfig.eslint.setup {
@@ -81,8 +102,10 @@ local setup = function(_, opts)
 
     ["gopls"] = function()
       lspconfig.gopls.setup {
-        on_attach = custom_on_attach,
         capabilities = capabilities,
+        on_attach = on_attach,
+        on_init = on_init,
+
         cmd = { "gopls" },
         cmd_env = {
           GOFLAGS = "-tags=test,e2e_test,integration_test,acceptance_test",
@@ -103,8 +126,10 @@ local setup = function(_, opts)
 
     ["jsonls"] = function()
       lspconfig.jsonls.setup {
-        on_attach = custom_on_attach,
         capabilities = capabilities,
+        on_attach = on_attach,
+        on_init = on_init,
+
         settings = {
           json = {
             validate = { enable = true },
@@ -151,8 +176,10 @@ local setup = function(_, opts)
 
     ["tailwindcss"] = function()
       lspconfig.tailwindcss.setup {
-        on_attach = custom_on_attach,
         capabilities = capabilities,
+        on_attach = on_attach,
+        on_init = on_init,
+
         filetypes = { "vue" },
       }
     end,
@@ -161,6 +188,8 @@ local setup = function(_, opts)
       lspconfig.vtsls.setup {
         on_attach = custom_on_attach,
         capabilities = capabilities,
+        on_init = on_init,
+
         -- explicitly add default filetypes, so that we can extend
         -- them in related extras
         filetypes = {
@@ -210,7 +239,28 @@ local spec = {
   dependencies = {
     {
       "williamboman/mason.nvim",
+      opts = {
+        ensure_installed = {
+          "bash-language-server",
+          "css-lsp",
+          "docker-compose-language-service",
+          "dockerfile-language-server",
+          "eslint_d",
+          "gopls@v0.11.0",
+          "html-lsp",
+          "json-lsp",
+          "lua-language-server",
+          "prettierd",
+          "prettier",
+          "stylua",
+          "tailwindcss-language-server",
+          "vtsls",
+          "vue-language-server",
+        },
+      },
       config = function(plugin, opts)
+        require("nvchad.configs.lspconfig").defaults()
+
         setup(plugin, opts)
       end,
     },
