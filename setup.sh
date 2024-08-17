@@ -6,10 +6,14 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until the script has finished.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-echo "------------------------------"
-echo "Installing Xcode Command Line Tools."
-# Install Xcode command line tools
-xcode-select --install
+if [ "$(uname)" == "Darwin" ]; then
+  echo "------------------------------"
+  echo "Installing Xcode Command Line Tools."
+  # Install Xcode command line tools
+  xcode-select --install
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+  apt update && apt install -y curl git build-essential
+fi
 
 # Check for Homebrew,
 # Install if we don't have it
