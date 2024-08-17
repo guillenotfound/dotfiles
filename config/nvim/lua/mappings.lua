@@ -55,7 +55,7 @@ map("n", "<leader>fW", function()
   local word = vim.fn.expand "<cWORD>"
   require("telescope.builtin").grep_string { search = word }
 end, { desc = "Grep WORD under cursor" })
--- map("n", "<leader>fo", "<cmd> Telescope oldfiles cwd=vim.loop.cwd()<CR>", { desc = "Find oldfiles" })
+-- map("n", "<leader>fo", "<cmd> Telescope oldfiles cwd=CWD<CR>", { desc = "Find oldfiles" })
 map("n", "<leader>sd", "<cmd> Telescope diagnostics <CR>", { desc = "[S]earch [D]iagnostics" })
 map("n", "<leader>ds", "<cmd> Telescope lsp_document_symbols <CR>", { desc = "[D]ocument [S]ymbols" })
 
