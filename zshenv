@@ -31,13 +31,11 @@ export PYTHONBREAKPOINT=ipdb.set_trace
 # Docker
 export DOCKER_BUILDKIT=1
 
-# Golang
-export GOPATH=$HOME/go
-export GOROOT="$(brew --prefix go)/libexec"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
-
 # Rust
 export PATH="$PATH:$HOME/.cargo/bin"
+
+# Golang
+export PATH="$PATH:$(go env GOPATH)/bin"
 
 # FZF
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'

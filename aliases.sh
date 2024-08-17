@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 alias code.="code ."
 # Aliases to work with sudo
 alias sudo="sudo "

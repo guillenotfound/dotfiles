@@ -4,7 +4,9 @@
 	excludesfile = ~/.gitignore_global
 [user]
 	name = Guille
-	email = guillenotfound@gmail.com
+	email = galba@zscaler.com
+; [url "ssh://git@bitbucket.corp.zscaler.com:7999"]
+; 	insteadOf = https://bitbucket.corp.zscaler.com/scm
 [alias]
 	lg = log --color --graph --pretty=format:'%C(auto)%h%Creset -%C(bold red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --abbrev=8
 	le = log --oneline --decorate
@@ -53,3 +55,8 @@
 	defaultBranch = main
 [rebase]
 	autoStash = true
+; [includeIf "gitdir:~/repos/"]
+; 	path = ~/.gitconfig_work
+
+[rerere]
+	enabled = true

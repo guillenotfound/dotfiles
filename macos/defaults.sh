@@ -36,10 +36,10 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # Save screenshots to a screenshots folder on the desktop
-defaults write com.apple.screencapture location -string "$HOME/Screenshots"
+defaults write com.apple.screencapture location -string "~/Screenshots"
 
 # Specify the preferences directory
-defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/Library/Preferences"
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.dotfiles/iterm"
 
 # Tell iTerm2 to use the custom preferences in the directory
 defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
