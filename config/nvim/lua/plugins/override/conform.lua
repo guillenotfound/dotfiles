@@ -10,16 +10,16 @@ return {
     formatters_by_ft = {
       lua = { "stylua" },
 
-      css = { { "prettierd", "prettier" } },
-      scss = { { "prettierd", "prettier" } },
+      css = { "prettierd", "prettier", stop_after_first = true },
+      scss = { "prettierd", "prettier", stop_after_first = true },
 
-      html = { { "prettierd", "prettier" } },
+      html = { "prettierd", "prettier", stop_after_first = true },
 
-      javascript = { { "prettierd", "prettier" } },
-      javascriptreact = { { "prettierd", "prettier" } },
-      typescript = { { "prettierd", "prettier" } },
-      typescriptreact = { { "prettierd", "prettier" } },
-      vue = { { "prettierd", "prettier" } },
+      javascript = { "prettierd", "prettier", stop_after_first = true },
+      javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+      typescript = { "prettierd", "prettier", stop_after_first = true },
+      typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+      vue = { "prettierd", "prettier", stop_after_first = true },
 
       sh = { "shfmt" },
     },

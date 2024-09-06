@@ -12,7 +12,7 @@ local setup = function(_, opts)
     "cssls",
     "docker_compose_language_service",
     "dockerls",
-    "eslint",
+    -- "eslint",
     "gopls",
     "html",
     "jsonls",
@@ -88,17 +88,17 @@ local setup = function(_, opts)
       }
     end,
 
-    ["eslint"] = function()
-      lspconfig.eslint.setup {
-        on_attach = function(client, bufnr)
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            command = "EslintFixAll",
-          })
-        end,
-        capabilities = capabilities,
-      }
-    end,
+    -- ["eslint"] = function()
+    --   lspconfig.eslint.setup {
+    --     on_attach = function(client, bufnr)
+    --       vim.api.nvim_create_autocmd("BufWritePre", {
+    --         buffer = bufnr,
+    --         command = "EslintFixAll",
+    --       })
+    --     end,
+    --     capabilities = capabilities,
+    --   }
+    -- end,
 
     ["gopls"] = function()
       lspconfig.gopls.setup {
@@ -245,7 +245,7 @@ local spec = {
           "css-lsp",
           "docker-compose-language-service",
           "dockerfile-language-server",
-          "eslint_d",
+          -- "eslint_d",
           "gopls@v0.11.0",
           "html-lsp",
           "json-lsp",
