@@ -17,7 +17,8 @@ map("n", "N", "Nzzzv")
 map("n", "<leader>|", "<C-w>v")
 map("n", "<leader>-", "<C-w>s")
 
-map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+  { desc = "Search & replace word under cursor" })
 
 map("n", "<up>", "")
 map("n", "<down>", "")
@@ -41,24 +42,23 @@ map("x", "<A-k>", ":move '<-2<CR>gv-gv")
 
 --
 -- Nvimtree
-map("n", "<leader>b", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle nvimtree" })
+map("n", "<leader>b", "<cmd> NvimTreeToggle <CR>", { desc = "Nvimtree Toggle" })
 
 
 --
 -- Telescope
-map("n", "<leader>ff", "<cmd> Telescope frecency workspace=CWD<CR>", { desc = "[F]ind [F]iles" })
-map("n", "<leader>fww", function()
+map("n", "<leader>ff", "<cmd> Telescope frecency workspace=CWD<CR>", { desc = "Telescope [F]ind [F]iles" })
+map("n", "<leader>gw", function()
   local word = vim.fn.expand "<cword>"
   require("telescope.builtin").grep_string { search = word }
-end, { desc = "Grep word under cursor" })
-map("n", "<leader>fW", function()
+end, { desc = "Telescope [g]rep [w]ord under cursor" })
+map("n", "<leader>gW", function()
   local word = vim.fn.expand "<cWORD>"
   require("telescope.builtin").grep_string { search = word }
-end, { desc = "Grep WORD under cursor" })
+end, { desc = "Telescope [g]rep [W]ORD under cursor" })
 -- map("n", "<leader>fo", "<cmd> Telescope oldfiles cwd=CWD<CR>", { desc = "Find oldfiles" })
-map("n", "<leader>sd", "<cmd> Telescope diagnostics <CR>", { desc = "[S]earch [D]iagnostics" })
-map("n", "<leader>ds", "<cmd> Telescope lsp_document_symbols <CR>", { desc = "[D]ocument [S]ymbols" })
-
+map("n", "<leader>sd", "<cmd> Telescope diagnostics <CR>", { desc = "Telescope [S]earch [D]iagnostics" })
+map("n", "<leader>ds", "<cmd> Telescope lsp_document_symbols <CR>", { desc = "Telescope [D]ocument [S]ymbols" })
 
 --
 -- Disable mappings
@@ -72,3 +72,9 @@ nomap({ "n", "t" }, "<A-h>")
 nomap({ "n", "t" }, "<A-i>")
 nomap("n", "<tab>")
 nomap("n", "<S-tab>")
+nomap("n", "<leader>x")
+
+nomap({ "n", "i" }, "<C-h>")
+nomap({ "n", "i" }, "<C-l>")
+nomap({ "n", "i" }, "<C-j>")
+nomap({ "n", "i" }, "<C-k>")

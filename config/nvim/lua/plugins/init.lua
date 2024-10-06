@@ -6,7 +6,7 @@ return {
   { import = "plugins.override.nvim-lint" },
   { import = "plugins.override.telescope" },
 
-  -- { import = "plugins.spec.dressing" },
+  { import = "plugins.spec.dressing" },
   { import = "plugins.spec.better-scape" },
   { import = "plugins.spec.fugitive" },
   { import = "plugins.spec.gitsigns" },

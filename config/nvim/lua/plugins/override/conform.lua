@@ -10,6 +10,8 @@ return {
     formatters_by_ft = {
       lua = { "stylua" },
 
+      bash = { "shfmt" },
+
       css = { "prettierd", "prettier", stop_after_first = true },
       scss = { "prettierd", "prettier", stop_after_first = true },
 

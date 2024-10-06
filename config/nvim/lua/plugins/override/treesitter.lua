@@ -1,6 +1,9 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    "nvim-treesitter/nvim-treesitter-context"
+  },
   opts = {
     ensure_installed = {
       "bash",
@@ -8,6 +11,7 @@ return {
       "dockerfile",
       "go",
       "groovy",
+      "helm",
       "html",
       "javascript",
       "lua",
@@ -37,6 +41,22 @@ return {
       },
     },
     textobjects = {
+      move = {
+        enable = true,
+        set_jumps = true, -- whether to set jumps in the jumplist
+        goto_next_start = {
+          ["]m"] = "@function.outer",
+        }
+      },
+      goto_previous_start = {
+        ["[m"] = "@function.outer",
+      },
+      goto_next = {
+        ["]d"] = "@conditional.outer",
+      },
+      goto_previous = {
+        ["[d"] = "@conditional.outer",
+      },
       select = {
         enable = true,
         lookahead = true,

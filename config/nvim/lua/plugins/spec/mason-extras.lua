@@ -12,6 +12,7 @@ local setup = function(_, opts)
     "cssls",
     "docker_compose_language_service",
     "dockerls",
+    "helm_ls",
     -- "eslint",
     "gopls",
     "html",
@@ -71,12 +72,13 @@ local setup = function(_, opts)
         settings = {
           Lua = {
             diagnostics = {
-              globals = { "vim" },
+              globals = { "hs", "vim" },
             },
             workspace = {
               library = {
                 vim.fn.expand "$VIMRUNTIME/lua",
                 vim.fn.expand "$VIMRUNTIME/lua/vim/lsp",
+                ['/Applications/Hammerspoon.app/Contents/Resources/extensions/hs/'] = true,
                 vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types",
                 vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy",
               },
