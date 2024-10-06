@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DOTFILES_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+DOTFILES_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 
 ln -sf "$DOTFILES_DIR/zshrc" ~/.zshrc
 ln -sf "$DOTFILES_DIR/zshenv" ~/.zshenv
@@ -21,6 +21,7 @@ ln -sf "$DOTFILES_DIR/czrc" ~/.czrc
 
 ln -sf "$DOTFILES_DIR/curlrc" ~/.curlrc
 
+mkdir -p ~/.config/{bat,nvim,zed}
 ln -sfn "$DOTFILES_DIR/config/bat" ~/.config/bat
 ln -sfn "$DOTFILES_DIR/config/nvim" ~/.config/nvim
 ln -sfn "$DOTFILES_DIR/config/zed" ~/.config/zed
@@ -28,4 +29,3 @@ ln -sf "$DOTFILES_DIR/config/starship.toml" ~/.config/starship.toml
 
 # TODO: this should be moved somewhere else
 bat cache --build
-
