@@ -1,3 +1,10 @@
 **/*.zwc
 
 /custom
+/gitconfig_work
+
+# zed
+config/zed/**
+
+!config/zed/keymap.json
+!config/zed/config.json
