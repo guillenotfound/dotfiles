@@ -26,7 +26,7 @@ export PATH="/opt/homebrew/bin/:/home/linuxbrew/.linuxbrew/bin/brew:$PATH"
 
 # Install dependencies from Brewfile
 brew update && brew upgrade
-brew bundle -f ~/.dotfiles/Brewfile install
+brew bundle --file=~/.dotfiles/Brewfile install
 
 # To install useful key bindings and fuzzy completion:
 $(brew --prefix)/opt/fzf/install
@@ -43,4 +43,3 @@ mkdir -p $HOME/{repos,Screenshots}
 
 # Create Golang dirs
 mkdir -p $HOME/go/{bin,src,pkg}
-
