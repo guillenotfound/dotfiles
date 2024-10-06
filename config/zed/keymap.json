@@ -17,11 +17,6 @@
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      "w": "vim::NextSubwordStart",
-      "b": "vim::PreviousSubwordStart",
-      "e": "vim::NextSubwordEnd",
-      "g e": "vim::PreviousSubwordEnd",
-
       // "space b": "editor::ToggleGitBlame",
       "shift-k": "editor::Hover",
       "space c a": "editor::ToggleCodeActions",
