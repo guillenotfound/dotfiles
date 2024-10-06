@@ -3,10 +3,8 @@
 	pager = delta --diff-so-fancy
 	excludesfile = ~/.gitignore_global
 [user]
-	name = Guille
-	email = galba@zscaler.com
-; [url "ssh://git@bitbucket.corp.zscaler.com:7999"]
-; 	insteadOf = https://bitbucket.corp.zscaler.com/scm
+  name = Guille
+  email = guillenotfound@gmail.com
 [alias]
 	lg = log --color --graph --pretty=format:'%C(auto)%h%Creset -%C(bold red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --abbrev=8
 	le = log --oneline --decorate
@@ -31,6 +29,7 @@
 	ss = stash save
 	# https://jordanelver.co.uk/blog/2020/06/04/fixing-commits-with-git-commit-fixup-and-git-rebase-autosquash/
 	fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+  dft = difftool
 [push]
 	default = current
 	# followTags = true
@@ -55,8 +54,15 @@
 	defaultBranch = main
 [rebase]
 	autoStash = true
-; [includeIf "gitdir:~/repos/"]
-; 	path = ~/.gitconfig_work
-
+[includeIf "gitdir:~/repos/z/"]
+  path = ~/.gitconfig_work
 [rerere]
 	enabled = true
+[diff]
+  tool = difftastic
+[difftool]
+  prompt = false
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+  difftool = true

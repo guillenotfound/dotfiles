@@ -12,6 +12,7 @@ ln -sf "$DOTFILES_DIR/hushlogin" ~/.hushlogin
 ln -sf "$DOTFILES_DIR/tmux.conf" ~/.tmux.conf
 
 ln -sf "$DOTFILES_DIR/gitconfig" ~/.gitconfig
+ln -sf "$DOTFILES_DIR/gitconfig_work" ~/.gitconfig_work
 ln -sf "$DOTFILES_DIR/gitignore_global" ~/.gitignore_global
 
 ln -sf "$DOTFILES_DIR/rgignore" ~/.rgignore
@@ -22,6 +23,7 @@ ln -sf "$DOTFILES_DIR/curlrc" ~/.curlrc
 
 ln -sfn "$DOTFILES_DIR/config/bat" ~/.config/bat
 ln -sfn "$DOTFILES_DIR/config/nvim" ~/.config/nvim
+ln -sfn "$DOTFILES_DIR/config/zed" ~/.config/zed
 ln -sf "$DOTFILES_DIR/config/starship.toml" ~/.config/starship.toml
 
 # TODO: this should be moved somewhere else

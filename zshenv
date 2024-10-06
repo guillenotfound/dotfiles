@@ -51,3 +51,7 @@ export forgit_diff=gdf
 export forgit_checkout_branch=gch
 
 export FORGIT_LOG_FZF_OPTS="--reverse"
+export FORGIT_LOG_FORMAT="%C(auto)%h%Creset -%C(bold red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"
+
+# zoxide
+export _ZO_EXCLUDE_DIRS="$HOME/Downloads/*:$HOME/repos/z/isolation-browser/*"
