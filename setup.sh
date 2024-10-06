@@ -22,6 +22,7 @@ if test ! $(which brew); then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
+export PATH="/opt/homebrew/bin/:/home/linuxbrew/.linuxbrew/bin/brew:$PATH"
 
 # Install dependencies from Brewfile
 brew update && brew upgrade
@@ -35,7 +36,7 @@ rm -rf ~/.fzf.bash
 sudo n lts --no-use-xz
 
 # Install Node global deps
-npm i -g npm-check-updates tsx
+npm i -g npm-check-updates tsx pnpm
 
 # Create custom directories
 mkdir -p $HOME/{repos,Screenshots}
