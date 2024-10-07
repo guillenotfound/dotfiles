@@ -10,7 +10,9 @@ if [ "$(uname)" == "Darwin" ]; then
   echo "------------------------------"
   echo "Installing Xcode Command Line Tools."
   # Install Xcode command line tools
-  xcode-select --install
+  if ! xcode-select --version 2>&1 >/dev/null; then
+    xcode-select --install
+  fi
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   apt update && apt install -y curl git build-essential
 fi
@@ -29,14 +31,15 @@ brew update && brew upgrade
 brew bundle --file=~/.dotfiles/Brewfile install
 
 # To install useful key bindings and fuzzy completion:
-$(brew --prefix)/opt/fzf/install
-rm -rf ~/.fzf.bash
+$(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
 
 # Install Node LTS
+# https://github.com/tj/n?tab=readme-ov-file#installation
 sudo n lts --no-use-xz
+sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
 
 # Install Node global deps
-npm i -g npm-check-updates tsx pnpm
+sudo npm i -g npm-check-updates tsx pnpm
 
 # Create custom directories
 mkdir -p $HOME/{repos,Screenshots}
