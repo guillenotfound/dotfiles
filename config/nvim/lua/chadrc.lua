@@ -1,15 +1,21 @@
 -- This file  needs to have same structure as nvconfig.lua
 -- https://github.com/NvChad/NvChad/blob/v2.5/lua/nvconfig.lua
-
 ---@type ChadrcConfig
 local M = {}
 
 M.ui = {
+  telescope = { style = "bordered" },
+
+  tabufline = {
+    enabled = false,
+    order = { "buffers", "tabs" },
+  },
+}
+
+M.base46 = {
   transparency = true,
   theme = "onedark",
   lsp_semantic_tokens = false,
-
-  telescope = { style = "bordered" },
 
   hl_override = {
     Comment = { italic = true },
@@ -20,13 +26,6 @@ M.ui = {
     NvimTreeOpenedFolderName = { fg = "green", bold = true },
   },
 
-  tabufline = {
-    enabled = false,
-    order = { "buffers", "tabs" },
-  },
-}
-
-M.base46 = {
   integrations = {
     "lsp",
     "todo",
