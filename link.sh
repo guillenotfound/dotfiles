@@ -21,6 +21,8 @@ ln -sf "$DOTFILES_DIR/czrc" ~/.czrc
 
 ln -sf "$DOTFILES_DIR/curlrc" ~/.curlrc
 
+ln -sf "$DOTFILES_DIR/wezterm.lua" ~/.wezterm.lua
+
 mkdir -p ~/.config/{bat,nvim,zed}
 ln -sfn "$DOTFILES_DIR/config/bat" ~/.config/bat
 ln -sfn "$DOTFILES_DIR/config/nvim" ~/.config/nvim
