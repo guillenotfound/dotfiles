@@ -28,6 +28,7 @@ ln -sfn "$DOTFILES_DIR/hammerspoon" ~/.hammerspoon
 mkdir -p ~/.config
 ln -sfn "$DOTFILES_DIR/config/bat" ~/.config/bat
 ln -sfn "$DOTFILES_DIR/config/nvim" ~/.config/nvim
+ln -sfn "$DOTFILES_DIR/config/lazyvim" ~/.config/lazyvim
 ln -sfn "$DOTFILES_DIR/config/zed" ~/.config/zed
 ln -sf "$DOTFILES_DIR/config/starship.toml" ~/.config/starship.toml
 
