@@ -54,4 +54,8 @@ export FORGIT_LOG_FZF_OPTS="--reverse"
 export FORGIT_LOG_FORMAT="%C(auto)%h%Creset -%C(bold red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"
 
 # zoxide
-export _ZO_EXCLUDE_DIRS="$HOME/Downloads/*:$HOME/repos/z/isolation-browser/*"
+export _ZO_EXCLUDE_DIRS="$HOME/Downloads/*:$HOME/repos/z/isolation-browser/*:$HOME/.dotfiles/*"
+
+# node/npm
+export COREPACK_ENABLE_AUTO_PIN=0
+
