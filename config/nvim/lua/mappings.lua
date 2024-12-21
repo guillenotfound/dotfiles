@@ -4,7 +4,7 @@ local map = vim.keymap.set
 
 -- General
 map("i", "<C-d>", "<Del>")
-map("i", "<esc>", "<Nop>")
+-- map("i", "<esc>", "<Nop>")
 
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")

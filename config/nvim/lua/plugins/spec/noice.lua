@@ -30,7 +30,7 @@ local spec = {
           ["cmp.entry.get_documentation"] = true,
         },
         hover = { enabled = false },
-        signature = { enabled = false },
+        signature = { enabled = false, auto_open = { enabled = false } },
       },
       -- you can enable a preset for easier configuration
       presets = {

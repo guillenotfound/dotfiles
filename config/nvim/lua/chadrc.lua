@@ -32,6 +32,7 @@ M.base46 = {
     "mason",
     "notify",
     "nvimtree",
+    "statusline",
     "trouble",
   },
 }

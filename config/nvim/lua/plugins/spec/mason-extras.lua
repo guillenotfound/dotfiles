@@ -19,6 +19,7 @@ local setup = function(_, opts)
     "lua_ls",
     "tailwindcss",
     "volar",
+    -- "ts_ls",
     "vtsls",
   }
 
@@ -77,9 +78,11 @@ local setup = function(_, opts)
               library = {
                 vim.fn.expand "$VIMRUNTIME/lua",
                 vim.fn.expand "$VIMRUNTIME/lua/vim/lsp",
-                ['/Applications/Hammerspoon.app/Contents/Resources/extensions/hs/'] = true,
                 vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types",
                 vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy",
+                vim.fn.expand "$HOME/.hammerspoon/Spoons/EmmyLua.spoon",
+                -- ["/Applications/Hammerspoon.app/Contents/Resources/extensions/hs/"] = true,
+                -- string.format("%s/.hammerspoon/Spoons/EmmyLua.spoon/annotations", os.getenv "HOME"),
               },
               maxPreload = 100000,
               preloadFileSize = 10000,
@@ -181,13 +184,39 @@ local setup = function(_, opts)
         on_attach = on_attach,
         on_init = on_init,
 
-        filetypes = { "vue" },
+        filetypes = { "vue", "javascript" },
+      }
+    end,
+
+    -- ["ts_ls"] = function()
+    --   lspconfig.ts_ls.setup {
+    --     init_options = {
+    --       plugins = {
+    --         {
+    --           name = "@vue/typescript-plugin",
+    --           location = require("mason-registry").get_package("vue-language-server"):get_install_path()
+    --             .. "/node_modules/@vue/language-server",
+    --           languages = { "vue" },
+    --         },
+    --       },
+    --     },
+    --     filetypes = { "vue" },
+    --   }
+    -- end,
+
+    ["volar"] = function()
+      lspconfig.volar.setup {
+        init_options = {
+          vue = {
+            hybridMode = true,
+          },
+        },
       }
     end,
 
     ["vtsls"] = function()
       lspconfig.vtsls.setup {
-        on_attach = custom_on_attach,
+        on_attach = on_attach,
         capabilities = capabilities,
         on_init = on_init,
 
@@ -200,6 +229,7 @@ local setup = function(_, opts)
           "typescript",
           "typescriptreact",
           "typescript.tsx",
+          "vue",
         },
         settings = {
           complete_function_calls = true,
@@ -207,8 +237,21 @@ local setup = function(_, opts)
             enableMoveToFileCodeAction = true,
             autoUseWorkspaceTsdk = true,
             experimental = {
+              maxInlayHintLength = 30,
               completion = {
                 enableServerSideFuzzyMatch = true,
+              },
+            },
+            tsserver = {
+              globalPlugins = {
+                {
+                  name = "@vue/typescript-plugin",
+                  location = require("mason-registry").get_package("vue-language-server"):get_install_path()
+                    .. "/node_modules/@vue/language-server",
+                  languages = { "vue" },
+                  configNamespace = "typescript",
+                  enableForWorkspaceTypeScriptVersions = true,
+                },
               },
             },
           },

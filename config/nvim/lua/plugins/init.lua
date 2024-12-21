@@ -12,11 +12,12 @@ return {
   { import = "plugins.spec.gitsigns" },
   { import = "plugins.spec.harpoon" },
   { import = "plugins.spec.mason-extras" },
-  { import = "plugins.spec.noice" },
+  -- { import = "plugins.spec.noice" },
   { import = "plugins.spec.todo-comments" },
   { import = "plugins.spec.trouble" },
   { import = "plugins.spec.vim-sleuth" },
   { import = "plugins.spec.vim-surround" },
+  -- { import = "plugins.spec.vim-tabby" },
 
   -- disabled plugins
 
