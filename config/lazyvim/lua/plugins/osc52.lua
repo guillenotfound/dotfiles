@@ -1,3 +1,4 @@
+-- https://gronskiy.com/posts/2023-03-26-copy-via-vim-tmux-ssh/#set-up-the-vim-oscyank
 return {
   "ojroques/nvim-osc52",
   config = function()
