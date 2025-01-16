@@ -6,7 +6,11 @@ export LC_ALL='en_US.UTF-8'
 export PROMPT_EOL_MARK=''
 
 # Export homebrew to path
-export PATH="/opt/homebrew/bin:$PATH"
+if [[ "$(uname)" == "Darwin" ]]; then
+  export PATH="/opt/homebrew/bin:$PATH"
+else
+  export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+fi
 
 # TODO: this should be dynamic depending of if the bin exists
 # Expose postgres binaries
@@ -14,6 +18,7 @@ export PATH=/opt/homebrew/opt/postgresql@14/bin:$PATH
 
 # Editor
 export EDITOR='nvim'
+export VISUAL='nvim'
 
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"

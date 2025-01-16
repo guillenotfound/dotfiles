@@ -1,22 +1,23 @@
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
-# Enable shell completion for brew formulas
-# https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
-FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
-autoload -Uz compinit && compinit
-
-
-# Load custom functions
-# TODO: make this path dynamic
-FPATH="$HOME/.dotfiles/functions:${FPATH}"
-autoload -Uz batdiff bcp bip bup cap dt2h mac-is-linux ret send-wapp transfer
-
-
+# Completions
+# By default Brew installs them to "$(brew --prefix)/share/zsh/site-functions"
+#
+# Normally do something like `docker completion zsh > $(brew --prefix)/share/zsh/site-functions` when completions are missing
+#
 # Fix docker exec autocomplete
 # https://github.com/moby/moby/commit/402caa94d23ea3ad47f814fc1414a93c5c8e7e58
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
+# https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
+autoload -Uz compinit && compinit -i
+
+
+# Load custom functions
+FPATH="${FPATH}:${HOME}/.dotfiles/functions"
+autoload -Uz batdiff bcp bip bup cap dt2h mac-is-linux ret send-wapp transfer
 
 
 # Load ZSH plugins
@@ -40,7 +41,7 @@ source ~/.zsh/ohmyzsh/plugins/extract/extract.plugin.zsh
 
 
 # Enables key bindings and fuzzy completion
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
 
 # Load custom aliases
@@ -48,48 +49,3 @@ source ~/.dotfiles/aliases.sh
 
 # Load custom stuffs
 [ -f ~/.custom ] && source ~/.custom
-
-
-
-# Download zsh plugins & vim kikstart config
-
-function zcompile-many() {
-  local f
-  for f; do zcompile -R -- "$f".zwc "$f"; done
-}
-
-
-[[ -d ~/.zsh/plugins ]] || mkdir -p ~/.zsh/plugins
-
-
-# TODO: use a glob instead!
-if [[ ! -e ~/.dotfiles/functions/batdiff.zwc ]]; then
-  zcompile-many ~/.dotfiles/functions/*
-fi
-
-if [[ ! -e ~/.zsh/ohmyzsh ]]; then
-  git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git ~/.zsh/ohmyzsh
-  zcompile-many $ZSH/oh-my-zsh.sh
-  zcompile-many $ZSH/lib/*.zsh
-  zcompile-many $ZSH/plugins/**/*.zsh
-  zcompile-many $ZSH/plugins/**/_*
-fi
-
-if [[ ! -e ~/.zsh/plugins/zsh-syntax-highlighting ]]; then
-  git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/plugins/zsh-syntax-highlighting
-  zcompile-many ~/.zsh/plugins/zsh-syntax-highlighting/{zsh-syntax-highlighting.zsh,highlighters/*/*.zsh}
-fi
-
-if [[ ! -e ~/.zsh/plugins/zsh-autosuggestions ]]; then
-  git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/plugins/zsh-autosuggestions
-  zcompile-many ~/.zsh/plugins/zsh-autosuggestions/{zsh-autosuggestions.zsh,src/**/*.zsh}
-fi
-
-if [[ ! -e ~/.zsh/plugins/forgit ]]; then
-  git clone --depth=1 https://github.com/wfxr/forgit.git ~/.zsh/plugins/forgit
-  zcompile-many ~/.zsh/plugins/forgit/forgit.plugin.zsh
-fi
-
-
-unfunction zcompile-many
-

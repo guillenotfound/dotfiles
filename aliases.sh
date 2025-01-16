@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-alias code.="code ."
 # Aliases to work with sudo
 alias sudo="sudo "
+
+alias code.="code ."
 
 # nvim
 alias vim=nvim
@@ -45,11 +46,13 @@ alias flake8-lint="flake8 --max-line-length 139 --extend-exclude=.venv"
 alias black-fmt="black . --line-length 139 --skip-string-normalization"
 
 # Docker
+# compdef: command or service unknown: docker
+# $ docker completion zsh > $(brew --prefix)/share/zsh/site-functions
 alias d="docker"
 compdef d="docker"
 
-alias dc="docker-compose"
-compdef dc="docker-compose"
+alias dc="docker compose"
+compdef _docker dc="docker"
 
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"'
 
