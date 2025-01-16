@@ -6,21 +6,9 @@ function bindHotkey(appName, key)
 				app:hide()
 			else
 				app:activate()
-				-- local nowspace = hs.spaces.focusedSpace()
-				-- local screen = hs.screen.mainScreen()
-				-- local app_window = app:mainWindow()
-				-- hs.spaces.moveWindowToSpace(app_window, nowspace)
-				-- local max = screen:fullFrame()
-				-- local f = app_window:frame()
-				-- -- f.x = max.x
-				-- -- f.y = max.y
-				-- -- f.w = max.w
-				-- -- f.h = max.h
-				-- hs.timer.doAfter(0.2, function()
-				-- 	app_window:setFrame(f)
-				-- end)
-				-- app_window:focus()
 			end
+		else
+			hs.application.launchOrFocus(appName)
 		end
 	end)
 end
@@ -28,6 +16,7 @@ end
 bindHotkey("Wezterm", "space")
 bindHotkey("Slack", "s")
 bindHotkey("Chrome", "c")
+bindHotkey("Ghostty", "g")
 
 -- https://github.com/jasonrudolph/ControlEscape.spoon/tree/main?tab=readme-ov-file#installation
 hs.loadSpoon("ControlEscape"):start()
