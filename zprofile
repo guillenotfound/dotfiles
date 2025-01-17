@@ -39,5 +39,9 @@ if [[ ! -e ~/.zsh/plugins/forgit ]]; then
   zcompile-many ~/.zsh/plugins/forgit/forgit.plugin.zsh
 fi
 
+if [[ ! -e ~/.zsh/plugins/hhighlighter ]]; then
+  git clone --depth=1 https://github.com/paoloantinori/hhighlighter.git ~/.zsh/plugins/hhighlighter
+  zcompile-many ~/.zsh/plugins/hhighlighter/h.sh
+fi
 
 unfunction zcompile-many
