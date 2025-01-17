@@ -48,17 +48,21 @@ alias black-fmt="black . --line-length 139 --skip-string-normalization"
 # Docker
 # compdef: command or service unknown: docker
 # $ docker completion zsh > $(brew --prefix)/share/zsh/site-functions
-alias d="docker"
-compdef d="docker"
+if command -v docker > /dev/null 2>&1; then
+  alias d="docker"
+  compdef d="docker"
 
-alias dc="docker compose"
-compdef _docker dc="docker"
+  alias dc="docker compose"
+  compdef _docker dc="docker"
 
-alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"'
+  alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"'
+fi
 
 # Kubernetes
-alias k="kubectl"
-compdef __start_kubectl k="kubectl"
+if command -v kubectl > /dev/null 2>&1; then
+  alias k="kubectl"
+  compdef __start_kubectl k="kubectl"
+fi
 
 # ip addresses
 alias ip="curl ifconfig.me"
