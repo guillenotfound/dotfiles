@@ -64,6 +64,9 @@ if command -v kubectl > /dev/null 2>&1; then
   compdef __start_kubectl k="kubectl"
 fi
 
+alias kx="kubectx"
+alias kn="kubens"
+
 # ip addresses
 alias ip="curl ifconfig.me"
 alias localip="ipconfig getifaddr en0"
