@@ -1,5 +1,6 @@
 return {
   "mfussenegger/nvim-lint",
+  enabled = false,
   opts = {
     events = { "BufWritePost", "BufReadPost", "InsertLeave" },
     linters_by_ft = {

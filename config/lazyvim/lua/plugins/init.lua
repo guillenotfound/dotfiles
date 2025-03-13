@@ -22,27 +22,14 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       inlay_hints = { enabled = false },
-      -- preferences = {
-      --   -- Include the `type` keyword in auto-imports whenever possible.
-      --   -- Requires using TypeScript 5.3+ in the workspace.
-      --   preferTypeOnlyAutoImports = true,
-      -- },
       servers = {
         vtsls = {
-          root_dir = function()
-            local lazyvimRoot = require("lazyvim.util.root")
-            return lazyvimRoot.git()
-          end,
           settings = {
             typescript = {
               preferences = {
+                autoImportFileExcludePatterns = { ".git", "node_modules", "node:test" },
                 preferTypeOnlyAutoImports = true,
-                autoImportFileExcludePatterns = {
-                  "node:test",
-                },
-              },
-              tsserver = {
-                maxTsServerMemory = 8192,
+                includeCompletionsForModuleExports = false,
               },
             },
           },
@@ -73,7 +60,6 @@ return {
 
   {
     "saghen/blink.cmp",
-    version = "v0.*",
     enabled = function()
       return not vim.tbl_contains({ "lua", "markdown" }, vim.bo.filetype)
         and vim.bo.buftype ~= "prompt"
@@ -81,10 +67,25 @@ return {
     end,
     opts = {
       sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
+        -- Disable some sources in comments and strings.
+        default = function()
+          local sources = { "lsp", "buffer" }
+          local ok, node = pcall(vim.treesitter.get_node)
+
+          if ok and node then
+            if not vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type()) then
+              table.insert(sources, "path")
+            end
+            if node:type() ~= "string" then
+              table.insert(sources, "snippets")
+            end
+          end
+
+          return sources
+        end,
         providers = {
           snippets = {
-            min_keyword_length = 3, -- don't show when triggered manually, useful for JSON keys
+            min_keyword_length = 4, -- don't show when triggered manually, useful for JSON keys
             score_offset = -10,
           },
           buffer = {

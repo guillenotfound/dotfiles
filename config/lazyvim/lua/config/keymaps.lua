@@ -1,5 +1,5 @@
-local discipline = require("guille.discipline")
-discipline.cowboy()
+-- local discipline = require("guille.discipline")
+-- discipline.cowboy()
 
 local map = vim.keymap.set
 
@@ -15,25 +15,9 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
--- map(
---   "n",
---   "<leader>s",
---   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
---   { desc = "Search & replace word under cursor" }
--- )
-
 map("n", "<leader>fz", "<cmd>FzfLua grep_curbuf<cr>", { desc = "Buffer" })
 map("n", "<leader>fw", LazyVim.pick("live_grep"), { desc = "Grep (Root Dir)" })
 -- TODO: Add noice warning that instruct the new keymap
-
--- map("n", "<leader>gw", function()
---   local word = vim.fn.expand("<cword>")
---   require("telescope.builtin").grep_string({ search = word })
--- end, { desc = "Telescope [g]rep [w]ord under cursor" })
--- map("n", "<leader>gW", function()
---   local word = vim.fn.expand("<cWORD>")
---   require("telescope.builtin").grep_string({ search = word })
--- end, { desc = "Telescope [g]rep [W]ORD under cursor" })
 
 -- Update default ones with the ones I'm used to
 map({ "n", "v" }, "<leader>fm", function()
