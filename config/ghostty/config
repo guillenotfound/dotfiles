@@ -1,0 +1,14 @@
+font-family = "MesloLGLDZ Nerd Font Mono"
+
+cursor-style-blink = true
+cursor-style=block
+shell-integration=zsh
+shell-integration-features=no-cursor
+
+theme = "tokyonight"
+window-decoration = false
+
+confirm-close-surface = false
+
+
+keybind = cmd+p=text:\x60\x10
