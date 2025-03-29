@@ -8,8 +8,18 @@ eval "$(zoxide init zsh)"
 #
 # Fix docker exec autocomplete
 # https://github.com/moby/moby/commit/402caa94d23ea3ad47f814fc1414a93c5c8e7e58
-zstyle ':completion:*:*:docker:*' option-stacking yes
-zstyle ':completion:*:*:docker-*:*' option-stacking yes
+if command -v docker &> /dev/null; then
+  zstyle ':completion:*:*:docker:*' option-stacking yes
+  zstyle ':completion:*:*:docker-*:*' option-stacking yes
+fi
+
+if command -v pnpm &> /dev/null; then
+  source <(pnpm completion zsh)
+fi
+
+if command -v  npm &> /dev/null; then
+  source <(npm completion zsh)
+fi
 
 # https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
 autoload -Uz compinit && compinit -i
