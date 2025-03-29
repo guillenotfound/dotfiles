@@ -27,7 +27,7 @@ return {
           settings = {
             typescript = {
               preferences = {
-                autoImportFileExcludePatterns = { ".git", "node_modules", "node:test" },
+                autoImportFileExcludePatterns = { ".git", "node:test" },
                 preferTypeOnlyAutoImports = true,
                 includeCompletionsForModuleExports = false,
               },
