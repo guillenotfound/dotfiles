@@ -50,10 +50,10 @@ alias black-fmt="black . --line-length 139 --skip-string-normalization"
 # $ docker completion zsh > $(brew --prefix)/share/zsh/site-functions
 if command -v docker > /dev/null 2>&1; then
   alias d="docker"
-  compdef d="docker"
+  # compdef d="docker"
 
   alias dc="docker compose"
-  compdef _docker dc="docker"
+  # compdef _docker dc="docker"
 
   alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"'
 fi
