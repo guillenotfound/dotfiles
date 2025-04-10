@@ -64,4 +64,4 @@ export _ZO_EXCLUDE_DIRS="$HOME/Downloads/*:$HOME/repos/z/isolation-browser/*:$HO
 # node/npm
 export COREPACK_ENABLE_AUTO_PIN=0
 
-export NVIM_APPNAME=lazyvim
+# export NVIM_APPNAME=lazyvim
