@@ -18,6 +18,7 @@ bindHotkey("Brave", "b")
 bindHotkey("Chrome", "c")
 -- bindHotkey("Ghostty", "space")
 bindHotkey("Slack", "s")
+bindHotkey("Zoom", "z")
 
 -- https://github.com/jasonrudolph/ControlEscape.spoon/tree/main?tab=readme-ov-file#installation
 hs.loadSpoon("ControlEscape"):start()
