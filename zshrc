@@ -49,7 +49,7 @@ source ~/.zsh/ohmyzsh/lib/theme-and-appearance.zsh
 source ~/.zsh/ohmyzsh/plugins/extract/extract.plugin.zsh
 
 
-eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
