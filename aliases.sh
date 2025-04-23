@@ -17,6 +17,12 @@ compdef g="git"
 function gd() { git diff $@ -- ':(exclude)yarn.lock' ':(exclude)package-lock.json' ':(exclude)Pipfile.lock'; }
 function gds() { git diff --staged $@ -- ':(exclude)yarn.lock' ':(exclude)package-lock.json' ':(exclude)Pipfile.lock'; }
 
+# Source: https://www.adamsdesk.com/posts/manage-git-stash-command-line-fzf/#how-to-install-gsl
+# git stash with fzf
+function gsl {
+  git stash list --pretty="format:%<(11)%C(yellow)%gd %Cgreen%ci %C(blue)%s" $argv | fzf -0 --ansi --header 'ID          Date                      Message' --preview 'git stash show -p {1}' --preview-window up,wrap,80% --preview-label='[ Git Stashes ]' --preview-label-pos=3 --bind 'enter:execute(git stash show {1};read -p "Press any key to resume"),alt-d:reload(git stash drop {1};git stash list --pretty="format:%<(11)%C(yellow)%gd %Cgreen%ci %C(blue)%s" $argv),alt-p:reload(git stash pop {1};git stash list --pretty="format:%<(11)%C(yellow)%gd %Cgreen%ci %C(blue)%s" $argv)'
+}
+
 alias ga="git add"
 alias gaa="git add -A"
 alias gap="git add -p"
