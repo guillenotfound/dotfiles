@@ -15,15 +15,21 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
+-- Update default ones with the ones I'm used to
 map("n", "<leader>fz", "<cmd>FzfLua grep_curbuf<cr>", { desc = "Buffer" })
 map("n", "<leader>fw", LazyVim.pick("live_grep"), { desc = "Grep (Root Dir)" })
--- TODO: Add noice warning that instruct the new keymap
 
--- Update default ones with the ones I'm used to
 map({ "n", "v" }, "<leader>fm", function()
   LazyVim.format({ force = true })
 end, { desc = "Format" })
 
+map("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Open floading diagnostics" })
+
+-- Keymaps for plugins
+map("n", "<leader>go", ":GBrowse<CR>", { desc = "Git browse current file in browser" })
+map("v", "<leader>go", ":GBrowse!<CR>", { desc = "Git browse current file and selected line in browser" })
+
+-- Remove some keymaps
 local nomap = vim.keymap.del
 nomap("n", "<leader>cf")
 
@@ -32,5 +38,3 @@ nomap("n", "<leader>ft")
 nomap("n", "<leader>fT")
 nomap("n", "<c-/>")
 nomap("t", "<c-/>")
-
-map("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Open floading diagnostics" })
