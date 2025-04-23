@@ -18,6 +18,8 @@ return {
       vue = { "prettierd", "prettier", stop_after_first = true },
 
       sh = { "shfmt" },
+
+      json = { "jq" }
     },
   },
 }

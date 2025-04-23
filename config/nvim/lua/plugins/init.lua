@@ -23,6 +23,16 @@ return {
     opts = {
       inlay_hints = { enabled = false },
       servers = {
+        -- https://www.reddit.com/r/neovim/comments/1hpyul2/ts_development_in_neovim_again/
+        -- https://github.com/d7omdev/nvim/blob/b038a73e0bb2ebe879b4ef7868c11394ec10d053/lua/plugins/lspconfig.lua#L111C3-L111C115
+        -- https://www.reddit.com/r/neovim/comments/1guifug/lsp_extreme_lag/
+        eslint = {
+          flags = {
+            allow_incremental_sync = false,
+            debounce_text_changes = 1000,
+            exit_timeout = 1500,
+          },
+        },
         vtsls = {
           settings = {
             typescript = {

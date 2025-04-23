@@ -32,3 +32,5 @@ nomap("n", "<leader>ft")
 nomap("n", "<leader>fT")
 nomap("n", "<c-/>")
 nomap("t", "<c-/>")
+
+map("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Open floading diagnostics" })
