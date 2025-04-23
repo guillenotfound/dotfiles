@@ -18,9 +18,14 @@ if command -v pnpm &> /dev/null; then
   source <(pnpm completion zsh)
 fi
 
-if command -v  npm &> /dev/null; then
+if command -v npm &> /dev/null; then
   source <(npm completion zsh)
 fi
+k
+if command -v tailscale &> /dev/null; then
+  source <(tailscale completion zsh)
+fi
+
 
 # Load custom functions
 FPATH="${FPATH}:${HOME}/.dotfiles/functions"
