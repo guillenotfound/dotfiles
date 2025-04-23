@@ -5,6 +5,7 @@ return {
       lua = { "stylua" },
 
       bash = { "shfmt" },
+      sh = { "shfmt" },
 
       css = { "prettierd", "prettier", stop_after_first = true },
       scss = { "prettierd", "prettier", stop_after_first = true },
@@ -16,8 +17,6 @@ return {
       typescript = { "prettierd", "prettier", stop_after_first = true },
       typescriptreact = { "prettierd", "prettier", stop_after_first = true },
       vue = { "prettierd", "prettier", stop_after_first = true },
-
-      sh = { "shfmt" },
 
       json = { "jq" }
     },
