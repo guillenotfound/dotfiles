@@ -21,7 +21,7 @@ fi
 if command -v npm &> /dev/null; then
   source <(npm completion zsh)
 fi
-k
+
 if command -v tailscale &> /dev/null; then
   source <(tailscale completion zsh)
 fi
