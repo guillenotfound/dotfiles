@@ -7,20 +7,30 @@ alias code.="code ."
 
 # nvim
 alias vim=nvim
-function view() { vim -R $@ }
-function vimdiff() { vim -d $@ }
+function view() {
+  vim -R "$@"
+}
+
+function vimdiff() {
+  vim -d "$@"
+}
 
 # Git
 alias g="git"
 compdef g="git"
 
-function gd() { git diff $@ -- ':(exclude)yarn.lock' ':(exclude)package-lock.json' ':(exclude)Pipfile.lock'; }
-function gds() { git diff --staged $@ -- ':(exclude)yarn.lock' ':(exclude)package-lock.json' ':(exclude)Pipfile.lock'; }
+function gd() {
+  git diff "$@" -- ':(exclude)yarn.lock' ':(exclude)package-lock.json' ':(exclude)Pipfile.lock'
+}
+
+function gds() {
+  git diff --staged "$@" -- ':(exclude)yarn.lock' ':(exclude)package-lock.json' ':(exclude)Pipfile.lock'
+}
 
 # Source: https://www.adamsdesk.com/posts/manage-git-stash-command-line-fzf/#how-to-install-gsl
 # git stash with fzf
 function gsl {
-  git stash list --pretty="format:%<(11)%C(yellow)%gd %Cgreen%ci %C(blue)%s" $argv | fzf -0 --ansi --header 'ID          Date                      Message' --preview 'git stash show -p {1}' --preview-window up,wrap,80% --preview-label='[ Git Stashes ]' --preview-label-pos=3 --bind 'enter:execute(git stash show {1};read -p "Press any key to resume"),alt-d:reload(git stash drop {1};git stash list --pretty="format:%<(11)%C(yellow)%gd %Cgreen%ci %C(blue)%s" $argv),alt-p:reload(git stash pop {1};git stash list --pretty="format:%<(11)%C(yellow)%gd %Cgreen%ci %C(blue)%s" $argv)'
+  git stash list --pretty="format:%<(11)%C(yellow)%gd %Cgreen%ci %C(blue)%s" "$argv" | fzf -0 --ansi --header 'ID          Date                      Message' --preview 'git stash show -p {1}' --preview-window up,wrap,80% --preview-label='[ Git Stashes ]' --preview-label-pos=3 --bind 'enter:execute(git stash show {1};read -p "Press any key to resume"),alt-d:reload(git stash drop {1};git stash list --pretty="format:%<(11)%C(yellow)%gd %Cgreen%ci %C(blue)%s" $argv),alt-p:reload(git stash pop {1};git stash list --pretty="format:%<(11)%C(yellow)%gd %Cgreen%ci %C(blue)%s" $argv)'
 }
 
 alias ga="git add"
@@ -54,9 +64,9 @@ alias black-fmt="black . --line-length 139 --skip-string-normalization"
 # Docker
 # compdef: command or service unknown: docker
 # $ docker completion zsh > $(brew --prefix)/share/zsh/site-functions
-if command -v docker > /dev/null 2>&1; then
+if command -v docker >/dev/null 2>&1; then
   alias d="docker"
-  # compdef d="docker"
+  compdef d="docker"
 
   alias dc="docker compose"
   # compdef _docker dc="docker"
@@ -65,7 +75,7 @@ if command -v docker > /dev/null 2>&1; then
 fi
 
 # Kubernetes
-if command -v kubectl > /dev/null 2>&1; then
+if command -v kubectl >/dev/null 2>&1; then
   alias k="kubectl"
   compdef __start_kubectl k="kubectl"
 fi
