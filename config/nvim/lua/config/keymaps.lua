@@ -16,7 +16,6 @@ map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
 -- Update default ones with the ones I'm used to
-map("n", "<leader>fz", "<cmd>FzfLua grep_curbuf<cr>", { desc = "Buffer" })
 map("n", "<leader>fw", LazyVim.pick("live_grep"), { desc = "Grep (Root Dir)" })
 
 map({ "n", "v" }, "<leader>fm", function()
