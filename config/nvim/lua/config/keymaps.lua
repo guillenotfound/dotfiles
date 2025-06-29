@@ -1,6 +1,3 @@
--- local discipline = require("guille.discipline")
--- discipline.cowboy()
-
 local map = vim.keymap.set
 
 -- General
@@ -22,9 +19,7 @@ map({ "n", "v" }, "<leader>fm", function()
   LazyVim.format({ force = true })
 end, { desc = "Format" })
 
-map("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Open floading diagnostics" })
-
--- Keymaps for plugins
+-- Keymaps for plugins (LazyVim provides `<leader>gB` for browse and `<leader>gY` for yank)
 map("n", "<leader>go", ":GBrowse<CR>", { desc = "Git browse current file in browser" })
 map("v", "<leader>go", ":GBrowse!<CR>", { desc = "Git browse current file and selected line in browser" })
 
