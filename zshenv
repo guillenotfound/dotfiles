@@ -12,16 +12,12 @@ else
   export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 fi
 
-# TODO: this should be dynamic depending of if the bin exists
-# Expose postgres binaries
-export PATH=/opt/homebrew/opt/postgresql@14/bin:$PATH
-
 # Editor
 export EDITOR='nvim'
 export VISUAL='nvim'
 
 # Don’t clear the screen after quitting a manual page.
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="nvim +Man!"
 
 # Color them
 export LS_COLORS="$(vivid generate snazzy)"
@@ -64,4 +60,4 @@ export _ZO_EXCLUDE_DIRS="$HOME/Downloads/*:$HOME/repos/z/isolation-browser/*:$HO
 # node/npm
 export COREPACK_ENABLE_AUTO_PIN=0
 
-# export NVIM_APPNAME=lazyvim
+. "$HOME/.cargo/env"

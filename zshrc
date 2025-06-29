@@ -1,6 +1,8 @@
 # https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
 autoload -Uz compinit && compinit -i
 
+setopt interactivecomments # enable comments
+
 # Completions
 # By default Brew installs them to "$(brew --prefix)/share/zsh/site-functions"
 #
@@ -14,18 +16,21 @@ if command -v docker &> /dev/null; then
   source <(docker completion zsh)
 fi
 
-if command -v pnpm &> /dev/null; then
-  source <(pnpm completion zsh)
-fi
-
 if command -v npm &> /dev/null; then
   source <(npm completion zsh)
+fi
+
+if command -v kubectl &> /dev/null; then
+  source <(kubectl completion zsh)
+fi
+
+if command -v pnpm &> /dev/null; then
+  source <(pnpm completion zsh)
 fi
 
 if command -v tailscale &> /dev/null; then
   source <(tailscale completion zsh)
 fi
-
 
 # Load custom functions
 FPATH="${FPATH}:${HOME}/.dotfiles/functions"
@@ -40,7 +45,6 @@ source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/plugins/forgit/forgit.plugin.zsh
 
 source ~/.zsh/plugins/hhighlighter/h.sh
-
 
 # Load some stuffs from ohmyzsh
 source ~/.zsh/ohmyzsh/lib/completion.zsh
