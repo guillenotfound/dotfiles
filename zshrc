@@ -32,6 +32,10 @@ if command -v tailscale &> /dev/null; then
   source <(tailscale completion zsh)
 fi
 
+if command -v tsh &> /dev/null; then
+  eval "$(tsh --completion-script-zsh)"
+fi
+
 # Load custom functions
 FPATH="${FPATH}:${HOME}/.dotfiles/functions"
 autoload -Uz batdiff bcp bip bup cap dt2h mac-is-linux ret send-wapp transfer
@@ -61,7 +65,6 @@ source ~/.zsh/ohmyzsh/plugins/extract/extract.plugin.zsh
 eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-
 
 # Enables key bindings and fuzzy completion
 # source <(fzf --zsh)

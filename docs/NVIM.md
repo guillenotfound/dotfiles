@@ -21,6 +21,8 @@ brew install luarocs
 - `g;` - Go to N older position in change list
 - `g,` - Go to N newer positoin in change list
 - `CTRL-W ]` or `CTRL-W CTRL-]` - Split current window horizontally and go to definition
+- `gw` - Line wrap
+- `]s [s` - Go to next/previous spell error
 
 ## ToDo
 
