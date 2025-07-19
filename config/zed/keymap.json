@@ -2,10 +2,22 @@
   {
     "context": "Dock || Terminal || Editor",
     "bindings": {
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+      "ctrl-h": [
+        "workspace::ActivatePaneInDirection",
+        "Left"
+      ],
+      "ctrl-l": [
+        "workspace::ActivatePaneInDirection",
+        "Right"
+      ],
+      "ctrl-k": [
+        "workspace::ActivatePaneInDirection",
+        "Up"
+      ],
+      "ctrl-j": [
+        "workspace::ActivatePaneInDirection",
+        "Down"
+      ]
     }
   },
   {
@@ -17,7 +29,7 @@
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      // "space b": "editor::ToggleGitBlame",
+      "space g b": "editor::ToggleGitBlame",
       "shift-k": "editor::Hover",
       "space c a": "editor::ToggleCodeActions",
       "space f m": "editor::Format",

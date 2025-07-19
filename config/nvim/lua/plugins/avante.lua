@@ -1,39 +1,55 @@
 return {
-  {
-    "yetone/avante.nvim",
-    enabled = false,
-    event = "VeryLazy",
-    dependencies = {
-      "stevearc/dressing.nvim",
-    },
-    opts = {
-      hints = { enabled = false },
-      provider = "openai",
-      openai = {
-        endpoint = "https://zcoder.corp.zscaler.com/api/v3/openai/v1/",
-        model = "meta-llama/Meta-Llama-3.1-70B-Instruct",
+
+  "yetone/avante.nvim",
+  -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+  -- ⚠️ must add this setting! ! !
+  build = function()
+    -- conditionally use the correct build system for the current OS
+    if vim.fn.has("win32") == 1 then
+      return "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+    else
+      return "BUILD_FROM_SOURCE=true make"
+    end
+  end,
+  event = "VeryLazy",
+  version = false, -- Never set this value to "*"! Never!
+  ---@module 'avante'
+  ---@type avante.Config
+  opts = {
+    provider = "zgap",
+    providers = {
+      ["zgap"] = {
+        __inherited_from = "openai",
+        endpoint = "https://zgap.corp.zscaler.com",
+        model = "claude-4-sonnet",
         prompt = "You are an expert software developer. You give helpful and concise responses.",
+        api_key_name = "AVANTE_OPENAI_API_KEY",
+        timeout = 30000, -- Timeout in milliseconds
+        extra_request_body = {
+          temperature = 0.75,
+          max_tokens = 200000,
+        },
       },
     },
-    build = LazyVim.is_win() and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" or "make",
   },
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    optional = true,
-    ft = function(_, ft)
-      vim.list_extend(ft, { "Avante" })
-    end,
-    opts = function(_, opts)
-      opts.file_types = vim.list_extend(opts.file_types or {}, { "Avante" })
-    end,
-  },
-  {
-    "folke/which-key.nvim",
-    optional = true,
-    opts = {
-      spec = {
-        { "<leader>a", group = "ai" },
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "MunifTanjim/nui.nvim",
+    --- The below dependencies are optional,
+    -- "echasnovski/mini.pick", -- for file_selector provider mini.pick
+    -- "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+    -- "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+    -- "ibhagwan/fzf-lua", -- for file_selector provider fzf
+    -- "stevearc/dressing.nvim", -- for input provider dressing
+    -- "folke/snacks.nvim", -- for input provider snacks
+    -- "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+    {
+      -- Make sure to set this up properly if you have lazy=true
+      "MeanderingProgrammer/render-markdown.nvim",
+      opts = {
+        file_types = { "markdown", "Avante" },
       },
+      ft = { "markdown", "Avante" },
     },
   },
 }

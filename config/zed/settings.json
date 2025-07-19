@@ -7,22 +7,44 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "agent": {
+    "default_profile": "minimal",
+    "default_model": {
+      "provider": "openai",
+      "model": "gemini-2.5-pro"
+    }
+  },
+  "language_models": {
+    "openai": {
+      "api_url": "https://zgap.corp.zscaler.com",
+      "available_models": [
+        {
+          "name": "claude-4-sonnet",
+          "display_name": "Claude V4 Sonnet",
+          "max_tokens": 300,
+          "max_output_tokens": null
+        },
+        {
+          "name": "gemini-2.5-pro",
+          "display_name": "Gemini V2.5 PRO",
+          "max_tokens": 4096,
+          "max_output_tokens": 4096
+        }
+      ]
+    }
+  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false
   },
-  "gutter": {
-    "code_actions": true // Do not show code actions
-  },
   "use_autoclose": false,
   "vim": {
-    "use_system_clipboard": "always",
-    "use_multiline_find": true
+    "use_system_clipboard": "always"
   },
   "vim_mode": true,
   "scrollbar": { "show": "never" },
   "relative_line_numbers": true,
-  "theme": "Atelier Savanna Dark",
+  "theme": "One Dark",
   "ui_font_size": 16,
   "buffer_font_size": 16
 }
