@@ -1,48 +1,42 @@
 return {
-
   "yetone/avante.nvim",
-  -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-  -- ⚠️ must add this setting! ! !
-  build = function()
-    -- conditionally use the correct build system for the current OS
-    if vim.fn.has("win32") == 1 then
-      return "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-    else
-      return "BUILD_FROM_SOURCE=true make"
-    end
-  end,
+  build = "make BUILD_FROM_SOURCE=true",
   event = "VeryLazy",
   version = false, -- Never set this value to "*"! Never!
   ---@module 'avante'
   ---@type avante.Config
   opts = {
+    input = {
+      provider = "snacks",
+    },
+    -- https://github.com/yetone/avante.nvim/wiki/Custom-providers
     provider = "zgap",
     providers = {
       ["zgap"] = {
         __inherited_from = "openai",
-        endpoint = "https://zgap.corp.zscaler.com",
+        api_key_name = "ZGAP_API_KEY",
+        endpoint = os.getenv("ZGAP_ENDPOINT"),
         model = "claude-4-sonnet",
         prompt = "You are an expert software developer. You give helpful and concise responses.",
-        api_key_name = "AVANTE_OPENAI_API_KEY",
-        timeout = 30000, -- Timeout in milliseconds
+        timeout = 30000,
         extra_request_body = {
-          temperature = 0.75,
-          max_tokens = 200000,
+          temperature = 0,
+          max_tokens = 4096,
         },
       },
+    },
+    selector = {
+      provider = "fzf_lua",
+    },
+    web_search_engine = {
+      provider = "tavily",
+      proxy = nil,
     },
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
-    --- The below dependencies are optional,
-    -- "echasnovski/mini.pick", -- for file_selector provider mini.pick
-    -- "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-    -- "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-    -- "ibhagwan/fzf-lua", -- for file_selector provider fzf
-    -- "stevearc/dressing.nvim", -- for input provider dressing
-    -- "folke/snacks.nvim", -- for input provider snacks
-    -- "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+    "folke/snacks.nvim",
     {
       -- Make sure to set this up properly if you have lazy=true
       "MeanderingProgrammer/render-markdown.nvim",

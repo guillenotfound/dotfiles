@@ -6,7 +6,7 @@ return {
     {
       "tommcdo/vim-fubitive",
       config = function()
-        vim.g.fubitive_domain_pattern = "bitbucket.corp.zscaler.com"
+        vim.g.fubitive_domain_pattern = os.getenv("BITBUCKET_ENDPOINT")
       end,
     },
   },
