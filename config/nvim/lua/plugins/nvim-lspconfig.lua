@@ -9,7 +9,6 @@ local eslint = {
 }
 
 local vtsls = {
-  enabled = not use_tsgo,
   settings = {
     typescript = {
       preferences = {
@@ -67,6 +66,11 @@ return {
 
     opts.servers.eslint = vim.tbl_deep_extend("force", opts.servers.eslint, eslint)
     opts.servers.vtsls = vim.tbl_deep_extend("force", opts.servers.vtsls, vtsls)
+
+    -- IF `tsgo` is enabled, limit `vtsls` to `vue` only.
+    if use_tsgo then
+      opts.servers.vtsls.filetypes = { "vue" }
+    end
 
     opts.inlay_hints = { enabled = false }
 
