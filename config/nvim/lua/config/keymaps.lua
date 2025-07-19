@@ -23,6 +23,15 @@ end, { desc = "Format" })
 map("n", "<leader>go", ":GBrowse<CR>", { desc = "Git browse current file in browser" })
 map("v", "<leader>go", ":GBrowse!<CR>", { desc = "Git browse current file and selected line in browser" })
 
+-- Do not modify clipboard when deleting characters
+map({ "n", "v" }, "x", '"_x')
+map({ "n", "v" }, "X", '"_X')
+
+-- https://www.reddit.com/r/neovim/comments/1d24sti/execute_random_commands_from_neovim/
+-- Execute the command in the current line or selected and it will get the output into the buffer couple of lines after
+map("n", "<leader>xp", "yy2o<ESC>kpV:!/bin/bash<CR>")
+map("v", "<leader>xp", "y'<P'<O<ESC>'>o<ESC>:<C-u>'<,'>!/bin/bash<CR>")
+
 -- Remove some keymaps
 local nomap = vim.keymap.del
 nomap("n", "<leader>cf")
