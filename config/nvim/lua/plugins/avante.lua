@@ -1,5 +1,9 @@
 return {
   "yetone/avante.nvim",
+  enabled = function()
+    local value = os.getenv("ZGAP_ENDPOINT")
+    return value ~= nil and value ~= ""
+  end,
   build = "make BUILD_FROM_SOURCE=true",
   event = "VeryLazy",
   version = false, -- Never set this value to "*"! Never!
