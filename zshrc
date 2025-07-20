@@ -57,7 +57,8 @@ source ~/.zsh/ohmyzsh/lib/directories.zsh
 source ~/.zsh/ohmyzsh/lib/grep.zsh
 source ~/.zsh/ohmyzsh/lib/history.zsh
 source ~/.zsh/ohmyzsh/lib/key-bindings.zsh
-source ~/.zsh/ohmyzsh/lib/theme-and-appearance.zsh
+# Using vivid instead
+# source ~/.zsh/ohmyzsh/lib/theme-and-appearance.zsh
 
 source ~/.zsh/ohmyzsh/plugins/extract/extract.plugin.zsh
 

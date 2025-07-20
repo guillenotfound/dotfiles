@@ -107,3 +107,6 @@ alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/C
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
+
+# https://github.com/sharkdp/vivid?tab=readme-ov-file#on-macos
+alias ls="ls --color=auto"
