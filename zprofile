@@ -18,10 +18,10 @@ fi
 if [[ ! -e ~/.zsh/ohmyzsh ]]; then
   ZSH_DIR="$HOME/.zsh/ohmyzsh"
   git clone --depth=1 https://github.com/ohmyzsh/ohmyzsh.git "$ZSH_DIR"
-  zcompile-many $ZSH_DIR/oh-my-zsh.sh
-  zcompile-many $ZSH_DIR/lib/*.zsh
-  zcompile-many $ZSH_DIR/plugins/**/*.zsh
-  zcompile-many $ZSH_DIR/plugins/**/_*
+  zcompile-many "$ZSH_DIR"/oh-my-zsh.sh
+  zcompile-many "$ZSH_DIR"/lib/*.zsh
+  zcompile-many "$ZSH_DIR"/plugins/**/*.zsh
+  zcompile-many "$ZSH_DIR"/plugins/**/_*
 fi
 
 if [[ ! -e ~/.zsh/plugins/zsh-syntax-highlighting ]]; then
@@ -42,6 +42,11 @@ fi
 if [[ ! -e ~/.zsh/plugins/hhighlighter ]]; then
   git clone --depth=1 https://github.com/paoloantinori/hhighlighter.git ~/.zsh/plugins/hhighlighter
   zcompile-many ~/.zsh/plugins/hhighlighter/h.sh
+fi
+
+if [[ ! -e ~/.zsh/plugins/zsh-lazyload ]]; then
+  git clone --depth=1 https://github.com/qoomon/zsh-lazyload.git ~/.zsh/plugins/zsh-lazyload
+  zcompile-many ~/.zsh/plugins/zsh-lazyload/*.zsh
 fi
 
 unfunction zcompile-many

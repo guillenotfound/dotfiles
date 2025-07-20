@@ -3,39 +3,6 @@ autoload -Uz compinit && compinit -i
 
 setopt interactivecomments # enable comments
 
-# Completions
-# By default Brew installs them to "$(brew --prefix)/share/zsh/site-functions"
-#
-# Normally do something like `docker completion zsh > $(brew --prefix)/share/zsh/site-functions` when completions are missing
-#
-# Fix docker exec autocomplete
-# https://github.com/moby/moby/commit/402caa94d23ea3ad47f814fc1414a93c5c8e7e58
-if command -v docker &> /dev/null; then
-  zstyle ':completion:*:*:docker:*' option-stacking yes
-  zstyle ':completion:*:*:docker-*:*' option-stacking yes
-  source <(docker completion zsh)
-fi
-
-if command -v npm &> /dev/null; then
-  source <(npm completion zsh)
-fi
-
-if command -v kubectl &> /dev/null; then
-  source <(kubectl completion zsh)
-fi
-
-if command -v pnpm &> /dev/null; then
-  source <(pnpm completion zsh)
-fi
-
-if command -v tailscale &> /dev/null; then
-  source <(tailscale completion zsh)
-fi
-
-if command -v tsh &> /dev/null; then
-  eval "$(tsh --completion-script-zsh)"
-fi
-
 # Load custom functions
 FPATH="${FPATH}:${HOME}/.dotfiles/functions"
 autoload -Uz batdiff bcp bip bup cap dt2h mac-is-linux ret send-wapp transfer
@@ -49,6 +16,8 @@ source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/plugins/forgit/forgit.plugin.zsh
 
 source ~/.zsh/plugins/hhighlighter/h.sh
+
+source ~/.zsh/plugins/zsh-lazyload/zsh-lazyload.zsh
 
 # Load some stuffs from ohmyzsh
 source ~/.zsh/ohmyzsh/lib/completion.zsh
@@ -76,3 +45,36 @@ source ~/.dotfiles/aliases.sh
 
 # Load custom stuffs
 [ -f ~/.custom ] && source ~/.custom
+
+# Completions
+# By default Brew installs them to "$(brew --prefix)/share/zsh/site-functions"
+#
+# Normally do something like `docker completion zsh > $(brew --prefix)/share/zsh/site-functions` when completions are missing
+#
+# Fix docker exec autocomplete
+# https://github.com/moby/moby/commit/402caa94d23ea3ad47f814fc1414a93c5c8e7e58
+if command -v docker &>/dev/null; then
+  zstyle ':completion:*:*:docker:*' option-stacking yes
+  zstyle ':completion:*:*:docker-*:*' option-stacking yes
+  lazyload docker -- 'source <(docker completion zsh)'
+fi
+
+if command -v npm &>/dev/null; then
+  lazyload npm -- 'source <(npm completion)'
+fi
+
+if command -v kubectl &>/dev/null; then
+  lazyload kubectl -- 'source <(kubectl completion zsh)'
+fi
+
+if command -v pnpm &>/dev/null; then
+  lazyload pnpm -- 'source <(pnpm completion zsh)'
+fi
+
+if command -v tailscale &>/dev/null; then
+  lazyload tailscale -- 'source <(tailscale completion zsh)'
+fi
+
+if command -v tsh &>/dev/null; then
+  lazyload tsh -- 'eval "$(tsh --completion-script-zsh)"'
+fi
