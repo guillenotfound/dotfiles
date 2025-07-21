@@ -103,4 +103,35 @@ config.window_decorations = "RESIZE"
 
 config.window_close_confirmation = "NeverPrompt"
 
+config.initial_cols = 100
+config.initial_rows = 25
+
+-- So far `update-status` is the only event that triggers frequently enough such that we can update the `font_size`
+wezterm.on("update-status", function(window)
+	-- IF the window is not focused prevent changing any settings
+	if not window:is_focused() then
+		return
+	end
+
+	-- local screens = wezterm.gui.screens()
+	-- local active_screen = screens.active
+	-- print("win", active_screen)
+	-- print("wwindow", window:get_dimensions())
+
+	local active_screen_name = wezterm.gui.screens().active.name
+	if active_screen_name == "DELL S2722QC" then
+		-- window:set_inner_size(active_screen.width, active_screen.height)
+		-- window:set_position(0, 0)
+		window:set_config_overrides({
+			font_size = 18,
+		})
+	elseif active_screen_name == "Built-in Retina Display" then
+		-- window:set_inner_size(active_screen.width, active_screen.height)
+		-- window:set_position(0, 0)
+		window:set_config_overrides({
+			font_size = 13,
+		})
+	end
+end)
+
 return config
