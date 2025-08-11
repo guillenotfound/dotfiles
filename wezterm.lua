@@ -123,7 +123,7 @@ wezterm.on("update-status", function(window)
 		-- window:set_inner_size(active_screen.width, active_screen.height)
 		-- window:set_position(0, 0)
 		window:set_config_overrides({
-			font_size = 18,
+			font_size = 16,
 		})
 	elseif active_screen_name == "Built-in Retina Display" then
 		-- window:set_inner_size(active_screen.width, active_screen.height)
