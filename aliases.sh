@@ -17,7 +17,7 @@ function vimdiff() {
 
 # Git
 alias g="git"
-compdef g="git"
+# compdef g="git"
 
 function gd() {
   git diff "$@" -- ':(exclude)yarn.lock' ':(exclude)package-lock.json' ':(exclude)Pipfile.lock'
@@ -66,7 +66,7 @@ alias black-fmt="black . --line-length 139 --skip-string-normalization"
 # $ docker completion zsh > $(brew --prefix)/share/zsh/site-functions
 if command -v docker >/dev/null 2>&1; then
   alias d="docker"
-  compdef d="docker"
+  # compdef d="docker"
 
   alias dc="docker compose"
   # compdef _docker dc="docker"
@@ -75,10 +75,7 @@ if command -v docker >/dev/null 2>&1; then
 fi
 
 # Kubernetes
-if command -v kubectl >/dev/null 2>&1; then
-  alias k="kubectl"
-  compdef __start_kubectl k="kubectl"
-fi
+alias k="kubectl"
 
 alias kx="kubectx"
 alias kn="kubens"

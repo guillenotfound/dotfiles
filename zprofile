@@ -1,11 +1,18 @@
+# Not entirely sure why I have this here, I can maybe move it to zsenv
 if [[ "$(uname)" == "Darwin" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
+# Add colors to files and directories
+export LS_COLORS="$(vivid generate snazzy)"
+
 [[ -d ~/.zsh/plugins ]] || mkdir -p ~/.zsh/plugins
 
+# TODO: check if compiling makes any difference
+# TODO: refactor and simplify such that zcompile-many is called once
+# TODO: have an easy way to update (rm -rf ~/.zsh)
 function zcompile-many() {
   local f
   for f; do zcompile -R -- "$f".zwc "$f"; done
