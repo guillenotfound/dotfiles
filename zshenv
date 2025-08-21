@@ -12,6 +12,9 @@ else
   export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 fi
 
+# Custom binaries
+export PATH="~/.local/bin:$PATH"
+
 # Editor
 export EDITOR='nvim'
 export VISUAL='nvim'
