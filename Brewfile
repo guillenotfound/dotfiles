@@ -98,10 +98,12 @@ cask "font-roboto-mono"
 # Apps
 
 # Work specific
+cask "brave-browser"
 cask "cyberduck"
 cask "docker"
 cask "ghostty"
 cask "google-chrome"
+cask "hammerspoon"
 cask "keycastr"
 cask "maccy"
 cask "macdown"
