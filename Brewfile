@@ -49,7 +49,7 @@ brew "zoxide"
 # Languages
 brew "go"
 brew "n"
-brew "pipenv"
+brew "uv"
 brew "python@3.14"
 brew "rustup"
 
