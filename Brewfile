@@ -50,7 +50,7 @@ brew "zoxide"
 brew "go"
 brew "n"
 brew "pipenv"
-brew "python@3.12"
+brew "python@3.14"
 brew "rustup"
 
 # Caddy server
