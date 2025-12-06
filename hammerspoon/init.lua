@@ -15,7 +15,7 @@ end
 
 bindHotkey("Wezterm", "space")
 bindHotkey("Brave", "b")
-bindHotkey("Chrome", "c")
+bindHotkey("Zen", "c")
 -- bindHotkey("Ghostty", "space")
 bindHotkey("Slack", "s")
 bindHotkey("Zoom", "z")

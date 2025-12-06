@@ -12,7 +12,7 @@ export MANPAGER="nvim +Man!"
 export PROMPT_EOL_MARK=''
 
 # Custom binaries
-export PATH="$PATH:$(realpath ~/.local/bin)"
+export PATH="$PATH:$HOME/.local/bin"
 
 # Docker
 export DOCKER_BUILDKIT=1
@@ -45,6 +45,7 @@ export FZF_CTRL_T_OPTS="
 # Homebrew
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_CASK_OPTS=--no-quarantine
+export HOMEBREW_FORBIDDEN_FORMULAE="node"
 
 # node/npm
 export COREPACK_ENABLE_AUTO_PIN=0

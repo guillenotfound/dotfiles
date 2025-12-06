@@ -46,6 +46,7 @@ source ~/.zsh/plugins/zsh-lazyload/zsh-lazyload.zsh
 eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+FZF_CTRL_R_COMMAND= FZF_ALT_C_COMMAND= source <(fzf --zsh)
 
 
 #
@@ -99,3 +100,4 @@ fi
 # Final ideas
 #
 # Things such as `h` can also be lazy loaded maybe, is it worth?
+export PATH="/opt/homebrew/opt/helm@3/bin:$PATH"
