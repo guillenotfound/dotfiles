@@ -35,4 +35,9 @@ return {
       })
     end,
   },
+
+  {
+    "folke/persistence.nvim",
+    enabled = false,
+  },
 }

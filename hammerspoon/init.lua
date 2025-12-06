@@ -13,12 +13,12 @@ function bindHotkey(appName, key)
 	end)
 end
 
-bindHotkey("Wezterm", "space")
-bindHotkey("Brave", "b")
-bindHotkey("Chrome", "c")
--- bindHotkey("Ghostty", "space")
 bindHotkey("Slack", "s")
-bindHotkey("Zoom", "z")
+bindHotkey("Wezterm", "space")
+bindHotkey("Zen", "c")
+-- bindHotkey("Brave", "b")
+-- bindHotkey("Ghostty", "space")
+-- bindHotkey("Zoom", "z")
 
 -- https://github.com/jasonrudolph/ControlEscape.spoon/tree/main?tab=readme-ov-file#installation
 hs.loadSpoon("ControlEscape"):start()

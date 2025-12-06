@@ -1,9 +1,6 @@
 return {
   "yetone/avante.nvim",
-  enabled = function()
-    local value = os.getenv("ZGAP_ENDPOINT")
-    return value ~= nil and value ~= ""
-  end,
+  enabled = false,
   build = "make BUILD_FROM_SOURCE=true",
   event = "VeryLazy",
   version = false, -- Never set this value to "*"! Never!
@@ -14,9 +11,9 @@ return {
       provider = "snacks",
     },
     -- https://github.com/yetone/avante.nvim/wiki/Custom-providers
-    provider = "zgap",
+    provider = "zllama",
     providers = {
-      ["zgap"] = {
+      ["zllama"] = {
         __inherited_from = "openai",
         api_key_name = "ZGAP_API_KEY",
         endpoint = os.getenv("ZGAP_ENDPOINT"),
