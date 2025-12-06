@@ -1,0 +1,6 @@
+clean-zoxide-entries() {
+  zoxide query -l |
+    xargs -I {} sh -c 'test ! -d "{}/.git" && echo "{}"' |
+    grep -Ev 'Documents|Downloads|Screenshots' |
+    xargs -I {} zoxide remove "{}"
+}
