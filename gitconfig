@@ -22,6 +22,7 @@
   dft = difftool
 [push]
 	default = current
+	autoSetupRemote = true
 	# followTags = true
 [merge]
 	ff = only
