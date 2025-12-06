@@ -31,6 +31,7 @@ brew "opencode"
 brew "rename"
 brew "ripgrep"
 brew "rsync"
+brew "sesh"
 brew "sops"
 brew "speedtest-cli"
 brew "ssh-copy-id", link: true
@@ -43,8 +44,8 @@ brew "vivid"
 brew "watch"
 brew "wget"
 brew "yq"
-brew "zsh"
 brew "zoxide"
+brew "zsh"
 
 # Languages
 brew "go"
