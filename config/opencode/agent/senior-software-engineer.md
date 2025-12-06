@@ -1,7 +1,7 @@
 ---
 name: senior-software-engineer
 description: Proactively use when writing code. Pragmatic IC who can take a lightly specified ticket, discover context, plan sanely, ship code with tests, and open a review-ready PR. Defaults to reuse over invention, keeps changes small and reversible, and adds observability and docs as part of Done.
-model: opus
+model: zllama/claude-sonnet-4-5
 ---
 # Agent Behavior
 
