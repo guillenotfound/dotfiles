@@ -13,7 +13,7 @@ else
 fi
 
 # Custom binaries
-export PATH="~/.local/bin:$PATH"
+export PATH="$PATH:$(realpath ~/.local/bin)"
 
 # Editor
 export EDITOR='nvim'
