@@ -8,7 +8,6 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%C(auto)%h%Creset -%C(bold red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --abbrev=8
 	le = log --oneline --decorate
-	fl = log -u
 	dlc = diff --cached HEAD^
 	la = "!git config -l | grep alias | cut -c 7-"
 	cp = cherry-pick
@@ -18,15 +17,6 @@
 	co = checkout
 	br = branch
 	diff = diff --word-diff
-	r = reset
-	r1 = reset HEAD^
-	r2 = reset HEAD^^
-	rh = reset --hard
-	rh1 = reset HEAD^ --hard
-	rh2 = reset HEAD^^ --hard
-	sl = stash list
-	sa = stash apply
-	ss = stash save
 	# https://jordanelver.co.uk/blog/2020/06/04/fixing-commits-with-git-commit-fixup-and-git-rebase-autosquash/
 	fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
   dft = difftool
