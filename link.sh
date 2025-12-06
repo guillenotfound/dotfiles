@@ -29,7 +29,7 @@ mkdir -p ~/.config
 ln -sfn "$DOTFILES_DIR/config/bat" ~/.config/bat
 ln -sfn "$DOTFILES_DIR/config/ghostty" ~/.config/ghostty
 ln -sfn "$DOTFILES_DIR/config/nvim" ~/.config/nvim
-ln -sfn "$DOTFILES_DIR/config/zed" ~/.config/zed
+ln -sfn "$DOTFILES_DIR/config/opencode" ~/.config/opencode
 ln -sf "$DOTFILES_DIR/config/starship.toml" ~/.config/starship.toml
 
 # TODO: this should be moved somewhere else
