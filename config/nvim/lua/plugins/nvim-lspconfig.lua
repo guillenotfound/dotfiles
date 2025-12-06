@@ -1,4 +1,4 @@
-local use_tsgo = true
+local use_tsgo = false
 
 local eslint = {
   flags = {
