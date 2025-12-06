@@ -5,7 +5,7 @@ setopt interactivecomments # enable comments
 
 # Load custom functions
 FPATH="${FPATH}:${HOME}/.dotfiles/functions"
-autoload -Uz batdiff bcp bip bup cap clean-zoxide-entries dt2h mac-is-linux ret send-wapp transfer
+autoload -Uz bcp bip bup cap clean-zoxide-entries dt2h mac-is-linux ret send-wapp
 
 # Load ZSH plugins
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
