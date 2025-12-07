@@ -14,7 +14,7 @@ if [ "$(uname)" == "Darwin" ]; then
     xcode-select --install
   fi
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-  apt update && apt install -y curl git build-essential
+  apt update && apt install -y build-essential procps curl file git
 fi
 
 # Check for Homebrew,
