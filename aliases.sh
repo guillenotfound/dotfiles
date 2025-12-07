@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
+# Directories
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
+
+alias lsa='ls -lah'
+alias l='ls -lah'
+alias ll='ls -lh'
+alias la='ls -lAh'
+
 # Aliases to work with sudo
 alias sudo="sudo "
 
@@ -17,7 +28,6 @@ function vimdiff() {
 
 # Git
 alias g="git"
-compdef g="git"
 
 function gd() {
   git diff "$@" -- ':(exclude)yarn.lock' ':(exclude)package-lock.json' ':(exclude)Pipfile.lock'
@@ -36,7 +46,6 @@ function gsl {
 alias ga="git add"
 alias gaa="git add -A"
 alias gap="git add -p"
-alias gc="git commit -v"
 alias c="git commit -m"
 alias gcaa="git add --all && git commit --amend --no-edit"
 alias gnope="git checkout ."
@@ -44,10 +53,9 @@ alias gwait="git reset HEAD"
 alias gundo="git reset HEAD~"
 alias gco="git co"
 alias gl="git pull"
-#alias glo="git pull origin"
 alias gm="git merge - --no-ff"
 alias gp="git push"
-alias gpo="git push origin"
+alias gpo="git push -u origin"
 alias gst="git st"
 
 # Python
@@ -66,19 +74,12 @@ alias black-fmt="black . --line-length 139 --skip-string-normalization"
 # $ docker completion zsh > $(brew --prefix)/share/zsh/site-functions
 if command -v docker >/dev/null 2>&1; then
   alias d="docker"
-  compdef d="docker"
-
   alias dc="docker compose"
-  # compdef _docker dc="docker"
-
   alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"'
 fi
 
 # Kubernetes
-if command -v kubectl >/dev/null 2>&1; then
-  alias k="kubectl"
-  compdef __start_kubectl k="kubectl"
-fi
+alias k="kubectl"
 
 alias kx="kubectx"
 alias kn="kubens"
