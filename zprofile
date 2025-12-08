@@ -5,7 +5,16 @@
 # https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
 # On MacOS we need to add this in the .zshrc
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+  # Leaving this here in case it needs re-generation
+  # eval "$(/opt/homebrew/bin/brew shellenv)"
+
+  export HOMEBREW_PREFIX="/opt/homebrew";
+  export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+  export HOMEBREW_REPOSITORY="/opt/homebrew";
+  fpath[1,0]="/opt/homebrew/share/zsh/site-functions";
+  eval "$(/usr/bin/env PATH_HELPER_ROOT="/opt/homebrew" /usr/libexec/path_helper -s)"
+  [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}";
+  export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 fi
 
 # Add colors to files and directories
@@ -26,7 +35,8 @@ function zcompile-many() {
   for f; do zcompile -R -- "$f".zwc "$f"; done
 }
 
-if [ -z "$(find ~/.dotfiles/functions/ -name '*.zwc' -print -quit)" ]; then
+# Skip the slow find command - just check if one compiled file exists
+if [[ ! -f ~/.dotfiles/functions/bcp.zwc ]]; then
   zcompile-many ~/.dotfiles/functions/*
 fi
 
@@ -37,6 +47,11 @@ if [[ ! -e ~/.zsh/ohmyzsh ]]; then
   zcompile-many "$OH_MY_ZSH_DIR"/lib/*.zsh
   zcompile-many "$OH_MY_ZSH_DIR"/plugins/**/*.zsh
   zcompile-many "$OH_MY_ZSH_DIR"/plugins/**/_*
+fi
+
+if [[ ! -e ~/.zsh/plugins/zsh-defer ]]; then
+  git clone --depth=1 git@github.com:romkatv/zsh-defer.git ~/.zsh/plugins/zsh-defer
+  zcompile-many ~/.zsh/plugins/zsh-defer/zsh-defer.plugin.zsh
 fi
 
 if [[ ! -e ~/.zsh/plugins/zsh-syntax-highlighting ]]; then

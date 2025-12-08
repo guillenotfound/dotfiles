@@ -47,7 +47,8 @@ export COREPACK_ENABLE_AUTO_PIN=0
 export PYTHONBREAKPOINT=ipdb.set_trace
 
 # Rust
-. "$HOME/.cargo/env"
+# Using static export instead of sourcing ~/.cargo/env to save ~6ms (especially with CrowdStrike)
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # zoxide
 export _ZO_EXCLUDE_DIRS="$HOME/Downloads/*:$HOME/repos/z/isolation-browser/*:$HOME/.dotfiles/*"
