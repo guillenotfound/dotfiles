@@ -25,6 +25,8 @@ ln -sf "$DOTFILES_DIR/wezterm.lua" ~/.wezterm.lua
 
 ln -sfn "$DOTFILES_DIR/hammerspoon" ~/.hammerspoon
 
+ln -sf "$DOTFILES_DIR/ssh/rc" ~/.ssh/rc
+
 mkdir -p ~/.config
 ln -sfn "$DOTFILES_DIR/config/bat" ~/.config/bat
 ln -sfn "$DOTFILES_DIR/config/ghostty" ~/.config/ghostty

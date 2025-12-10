@@ -1,0 +1,6 @@
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  # https://gist.github.com/jvkersch/e7ef80dea675524d332f
+  if test "$SSH_AUTH_SOCK"; then
+    ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock
+  fi
+fi
