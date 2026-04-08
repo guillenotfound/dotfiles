@@ -6,7 +6,7 @@
   "small_model": "zllama/claude-sonnet-4-5",
   "provider": {
     "zllama": {
-      "npm": "@ai-sdk/openai",
+      "npm": "@ai-sdk/openai-compatible",
       "name": "zllama",
       "options": {
         "baseURL": "https://zllama.corp.zscaler.com",
