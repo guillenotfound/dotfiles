@@ -1,21 +1,25 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "default_agent": "plan",
+  "share": "disabled",
+  "model": "zllama/claude-opus-4-5",
+  "small_model": "zllama/claude-sonnet-4-5",
   "provider": {
     "zllama": {
-      "npm": "@ai-sdk/openai-compatible",
+      "npm": "@ai-sdk/openai",
       "name": "zllama",
       "options": {
-        "baseURL": "https://zllama.corp.zscaler.com"
+        "baseURL": "https://zllama.corp.zscaler.com",
       },
       "models": {
-        "gemini-embedding-001": {
-          "name": "Gemini Embedding 001"
+        "gpt-5.2": {
+          "name": "GPT-5.2"
         },
-        "text-embedding-3-small": {
-          "name": "Text Embedding 3 Small"
+        "gpt-5.1": {
+          "name": "GPT-5.1"
         },
-        "text-embedding-3-large": {
-          "name": "Text Embedding 3 Large"
+        "gpt-5-mini": {
+          "name": "GPT-5 Mini"
         },
         "gpt-5": {
           "name": "GPT-5"
@@ -35,31 +39,75 @@
         "o3-mini": {
           "name": "O3 Mini"
         },
+        "text-embedding-3-small": {
+          "name": "Text Embedding 3 Small"
+        },
+        "text-embedding-3-large": {
+          "name": "Text Embedding 3 Large"
+        },
+        "llama3-3-70b-instruct": {
+          "name": "Llama 3.3 70B Instruct"
+        },
+        "llama3-2-90b-instruct": {
+          "name": "Llama 3.2 90B Instruct"
+        },
+        "llama4-maverick": {
+          "name": "Llama 4 Maverick"
+        },
+        "gemini-3.1-pro-preview": {
+          "name": "Gemini 3.1 Pro Preview"
+        },
+        "gemini-3-pro": {
+          "name": "Gemini 3 PRO"
+        },
+        "gemini-3-flash": {
+          "name": "Gemini 3 Flash"
+        },
         "gemini-2.5-pro": {
           "name": "Gemini 2.5 PRO"
         },
         "gemini-2.5-flash": {
           "name": "Gemini 2.5 Flash"
         },
+        "claude-opus-4-6": {
+          "name": "Claude Opus 4.6"
+        },
+        "claude-opus-4-5": {
+          "name": "Claude Opus 4.5"
+        },
+        "claude-sonnet-4-6": {
+          "name": "Claude Sonnet 4.6"
+        },
         "claude-sonnet-4-5": {
           "name": "Claude Sonnet 4.5"
+        },
+        "claude-haiku-4-5": {
+          "name": "Claude Haiku 4.5"
         },
         "claude-4-sonnet": {
           "name": "Claude 4 Sonnet"
         },
-        "claude-3-7-sonnet": {
-          "name": "Claude 3.7 Sonnet"
-        },
-        "llama3-3-70b-instruct": {
-          "name": "Llama 3 70B Instruct"
-        },
-        "llama3-2-90b-instruct": {
-          "name": "Llama 3 90B Instruct"
-        },
-        "llama4-maverick": {
-          "name": "Llama 4 Maverick"
+        "gemini-embedding-001": {
+          "name": "Gemini Embedding 001"
         }
       }
     }
-  }
+  },
+  "mcp": {
+    "atlassian": {
+      "type": "local",
+      "command": [
+        "/opt/homebrew/bin/direnv",
+        "exec",
+        "/Users/guille/repos/z/cbi",
+        "uvx",
+        "mcp-atlassian"
+      ],
+      "enabled": false
+    }
+  },
+  "experimental": {
+    "disable_paste_summary": true
+  },
+  "formatter": false
 }
