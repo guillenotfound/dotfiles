@@ -4,13 +4,6 @@ return {
   dependencies = {
     "tpope/vim-rhubarb",
     {
-      "tommcdo/vim-fubitive",
-      config = function()
-        vim.g.fubitive_domain_pattern = os.getenv("BITBUCKET_ENDPOINT")
-      end,
-    },
-
-    {
       "shumphrey/fugitive-gitlab.vim",
       enabled = function()
         if os.getenv("GITLAB_SSH") then

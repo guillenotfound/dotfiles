@@ -1,4 +1,4 @@
-local use_tsgo = false
+local use_tsgo = true
 
 local eslint = {
   flags = {
@@ -54,7 +54,6 @@ return {
     opts.servers = opts.servers or {}
     opts.servers.tsgo = {
       enabled = use_tsgo,
-      mason = false, -- Since tsgo is not available through Mason
       capabilities = {
         workspace = {
           didChangeWatchedFiles = {

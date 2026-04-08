@@ -55,6 +55,9 @@ local function definition_split()
 end
 map("n", "<A-]>", definition_split, { desc = "Open the definition in a vertical split", remap = true })
 
+vim.cmd("packadd nvim.undotree")
+map("n", "<leader>u", require("undotree").open, { desc = "Open undotree" })
+
 -- Remove some keymaps
 local nomap = vim.keymap.del
 nomap("n", "<leader>cf")
