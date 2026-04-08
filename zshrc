@@ -4,12 +4,6 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-
-#
-# Load custom stuffs (this file is never commited)
-[ -f ~/.custom ] && source ~/.custom
-
-
 #
 # Load custom functions
 FPATH="${FPATH}:${HOME}/.dotfiles/functions"
@@ -26,6 +20,11 @@ for dump in ~/.zcompdump(N.mh+24); do
   compinit
 done
 compinit -C
+
+
+#
+# Load custom stuffs (this file is never commited)
+[ -f ~/.custom ] && source ~/.custom
 
 
 #
@@ -55,8 +54,6 @@ setopt share_history          # share command history data
 #
 # Load Oh My ZSH
 source ~/.zsh/ohmyzsh/lib/completion.zsh
-# source ~/.zsh/ohmyzsh/lib/grep.zsh
-# source ~/.zsh/ohmyzsh/lib/history.zsh
 source ~/.zsh/ohmyzsh/lib/key-bindings.zsh
 
 
@@ -70,35 +67,23 @@ source ~/.zsh/plugins/forgit/forgit.plugin.zsh
 source ~/.zsh/plugins/hhighlighter/h.sh
 source ~/.zsh/plugins/zsh-lazyload/zsh-lazyload.zsh
 
-
-#
-# Fix docker exec autocomplete
-# https://github.com/moby/moby/commit/402caa94d23ea3ad47f814fc1414a93c5c8e7e58
-if command -v docker &>/dev/null; then
-  zstyle ':completion:*:*:docker:*' option-stacking yes
-  zstyle ':completion:*:*:docker-*:*' option-stacking yes
-  lazyload docker -- 'source <(docker completion zsh)'
-fi
-
 if command -v npm &>/dev/null; then
   lazyload npm -- 'source <(npm completion)'
-fi
-
-if command -v pnpm &>/dev/null; then
-  lazyload pnpm -- 'source <(pnpm completion zsh)'
 fi
 
 if command -v tailscale &>/dev/null; then
   lazyload tailscale -- 'source <(tailscale completion zsh)'
 fi
 
+
 if command -v tsh &>/dev/null; then
-  lazyload tsh -- 'eval "$(tsh --completion-script-zsh)"'
+  lazyload tsh -- 'source <(tsh --completion-script-zsh)'
 fi
+
 
 #
 # Load core utilities
 eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(starship init zsh)"
-eval "$(zoxide init zsh --no-cmd)"
+eval "$(zoxide init zsh)"
 FZF_CTRL_R_COMMAND= FZF_ALT_C_COMMAND= source <(fzf --zsh)

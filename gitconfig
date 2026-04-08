@@ -45,6 +45,8 @@
 	defaultBranch = main
 [rebase]
 	autoStash = true
+[includeIf "gitdir:~/.oh-my-tp/plugins/"]
+  path = ~/.gitconfig_work
 [includeIf "gitdir:~/repos/z/"]
   path = ~/.gitconfig_work
 [rerere]
@@ -57,3 +59,8 @@
   cmd = difft "$LOCAL" "$REMOTE"
 [pager]
   difftool = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

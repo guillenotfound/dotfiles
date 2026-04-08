@@ -1,3 +1,7 @@
+# Add colors to files and directories
+# TODO: not always working I think
+# export LS_COLORS="$(vivid generate snazzy)"
+
 # Prefer US English and use UTF-8.
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
@@ -47,10 +51,10 @@ export COREPACK_ENABLE_AUTO_PIN=0
 export PYTHONBREAKPOINT=ipdb.set_trace
 
 # Rust
-. "$HOME/.cargo/env"
+source "$HOME/.cargo/env"
 
 # zoxide
-export _ZO_EXCLUDE_DIRS="$HOME/Downloads/*:$HOME/repos/z/isolation-browser/*:$HOME/.dotfiles/*"
+export _ZO_EXCLUDE_DIRS="$HOME/Downloads/*"
 
 # Helm 3
 export PATH="/opt/homebrew/opt/helm@3/bin:$PATH"
